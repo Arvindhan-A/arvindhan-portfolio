@@ -698,14 +698,14 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
     }
 
     .grid-3x3 {
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 10px;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 8px;
     }
 
     .tech-square-mobile {
         aspect-ratio: 1;
         justify-content: center;
-        padding: 10px !important;
+        padding: 8px !important;
         align-items: center;
     }
 
@@ -716,18 +716,18 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
 
     .tech-square-mobile .tech-tab-main {
         flex-direction: column;
-        gap: 5px;
+        gap: 3px;
         margin: 0;
         justify-content: center;
     }
 
     .tech-square-mobile .tech-icon-main {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 0;
     }
 
     .tech-square-mobile .tech-tab-name {
-        font-size: 7px;
+        font-size: 6px;
         text-align: center;
     }
 
@@ -782,7 +782,8 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
     .tech-stack-tabs { padding: 10px; }
     
     .grid-3x3 {
-        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px;
     }
     
     .contact-data-box { padding: 15px; }
