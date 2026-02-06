@@ -46,8 +46,8 @@
     <div class="glitch-overlay"></div>
 
     <nav class="pixel-nav">
-        <div class="nav-brand">ARVINDHAN A.EXE</div>
-        <div class="nav-links">
+        <div class="nav-brand">ARVINDHAN</div>
+        <div class="nav-links" id="nav-links">
             <a href="#hero" class="glitch-link">[ Start ]</a>
             <a href="#about" class="glitch-link">[ Bio ]</a>
             <a href="#projects" class="glitch-link">[ Projects ]</a>
@@ -56,12 +56,16 @@
         </div>
     </nav>
 
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <main>
         <!-- Hero -->
         <section id="hero" class="hero-section">
             <div class="container">
                 <div class="hero-box">
-                    <h1 class="glitch-text">{{ data.hero.name }}</h1>
+                    <h1 class="glitch-text typing-text">{{ data.hero.name }}</h1>
                     <p class="hero-tag">> {{ data.hero.tagline }}</p>
                     <p class="hero-desc">{{ data.hero.description }}</p>
                     <div class="cta-wrapper">
@@ -75,7 +79,7 @@
         <!-- About -->
         <section id="about">
             <div class="container">
-                <h2>> USER_PROFILE:</h2>
+                <h2 class="section-title"> USER_PROFILE.TXT</h2>
                 <div class="about-grid">
                     <div class="bio-box">
                         <p class="bio-text">{{ data.about.bio }}</p>
@@ -89,10 +93,19 @@
                             </div>
                             {% endfor %}
                         </div>
+
+                        <div class="detailed-bio-grid">
+                            {% for block in data.about.detailed_bio %}
+                            <div class="bio-block">
+                                <span class="bio-block-header">[{{ block.header }}]</span>
+                                <p class="bio-block-content">{{ block.content }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
                     </div>
                     <div class="timeline-box">
                         <div class="timeline-header hover-trigger" id="timeline-toggle">
-                            <h3>> LOG_HISTORY</h3>
+                            <h3> LOG_HISTORY</h3>
                             <span class="toggle-icon">[ - ]</span>
                         </div>
                         <div class="timeline-content" id="timeline-content">
@@ -114,7 +127,7 @@
         <!-- Projects -->
         <section id="projects">
             <div class="container">
-                <h2>> MISSIONS:</h2>
+                <h2 class="section-title"> MISSIONS.PY</h2>
                 <div class="pixel-grid">
                     {% for project in data.projects %}
                     <div class="pixel-card">
@@ -145,50 +158,197 @@
         <!-- Skills -->
         <section id="skills">
             <div class="container">
-                <div class="console-box">
-                    <div class="console-header">SKILL_MATRIX.DAT</div>
+                <h2 class="section-title"> SKILL_MATRIX.DAT</h2>
+                <div class="skills-grid-complex">
                     
-                    <div class="skills-split">
+                    <!-- Tech Stack (Clean Tab Layout) -->
+                    <div class="skill-card-complex full-width">
+                        <div class="card-edge top-left"></div>
+                        <div class="card-edge top-right"></div>
+                        <div class="card-edge bottom-left"></div>
+                        <div class="card-edge bottom-right"></div>
+
+                                                <div class="card-header-complex">
+                                                    <h3>SYSTEM_DRIVERS / TECH_STACK</h3>
                         
-                        <!-- Core Competencies -->
-                        <div class="skill-col">
-                            <h3>CORE_MODULES</h3>
-                            <ul class="skill-list-simple">
-                                {% for item in data.skills.core_competencies %}
-                                <li class="collapsible-skill">
-                                    <div class="skill-head">> {{ item.name }}</div>
-                                    <div class="skill-desc">{{ item.desc }}</div>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                                                </div>
+                                                
+                                                                        <div class="tech-stack-tabs grid-3x3">
+                                                
+                                                                            {% for item in data.skills.technologies %}
+                                                
+                                                                            <div class="tech-tab tech-square-mobile">
+                                                
+                                                                                <div class="tech-tab-main">
+                                                
+                                                                                    <i class="{{ item.icon }} tech-icon-main"></i>
+                                                
+                                                                                    <span class="tech-tab-cat">{{ item.category }}</span>
+                                                
+                                                                                    <span class="tech-tab-name">{{ item.name }}</span>
+                                                
+                                                                                </div>
+                                                
+                                                                                <p class="tech-tab-desc">{{ item.desc }}</p>
+                                                
+                                                                            </div>
+                                                
+                                                                            {% endfor %}
+                                                
+                                                                        </div>
+                        
+                                            </div>
+                        
+                        
+                        
+                                            <!-- Core Competencies -->
+                        
+                                            <div class="skill-card-complex">
+                        
+                                                <div class="card-edge top-left"></div>
+                        
+                                                <div class="card-edge top-right"></div>
+                        
+                                                <div class="card-edge bottom-left"></div>
+                        
+                                                <div class="card-edge bottom-right"></div>
+                        
+                                                
+                        
+                                                <div class="card-header-complex">
+                        
+                                                    <h3>CORE_MODULES</h3>
+                        
+                                                </div>
+                        
+                                                
+                        
+                                                <div class="tech-stack-tabs">
+                        
+                                                    {% for item in data.skills.core_competencies %}
+                        
+                                                    <div class="tech-tab">
+                        
+                                                        <span class="tech-tab-name">{{ item.name }}</span>
+                        
+                                                        <p class="tech-tab-desc">{{ item.desc }}</p>
+                        
+                                                    </div>
+                        
+                                                    {% endfor %}
+                        
+                                                </div>
+                        
+                                            </div>
+                        
+                        
+                        
+                                            <!-- Certifications -->
+                        
+                                            <div class="skill-card-complex">
+                        
+                                                <div class="card-edge top-left"></div>
+                        
+                                                <div class="card-edge top-right"></div>
+                        
+                                                <div class="card-edge bottom-left"></div>
+                        
+                                                <div class="card-edge bottom-right"></div>
+                        
+                        
+                        
+                                                <div class="card-header-complex">
+                        
+                                                    <h3>CERTIFICATIONS</h3>
+                        
+                                                </div>
+                        
+                                                
+                        
+                                                <div class="tech-stack-tabs">
+                        
+                                                    {% for item in data.skills.certifications %}
+                        
+                                                    <div class="tech-tab">
+                        
+                                                        <span class="tech-tab-name">{{ item.name }}</span>
+                        
+                                                        <p class="tech-tab-desc">{{ item.desc }}</p>
+                        
+                                                    </div>
+                        
+                                                    {% endfor %}
+                        
+                                                </div>
+                        
+                                            </div>
+                        
+                        
+                        
+                                            <!-- Creative Modules -->
+                        
+                                            <div class="skill-card-complex full-width">
+                        
+                                                <div class="card-edge top-left"></div>
+                        
+                                                <div class="card-edge top-right"></div>
+                        
+                                                <div class="card-edge bottom-left"></div>
+                        
+                                                <div class="card-edge bottom-right"></div>
+                        
+                        
+                        
+                                                <div class="card-header-complex">
+                        
+                                                    <h3>CREATIVE_MODULES</h3>
+                        
+                                                </div>
+                        
+                                                
+                        
+                                                <div class="tech-stack-tabs">
+                        
+                                                    {% for item in data.skills.creative_modules %}
+                        
+                                                    <div class="tech-tab">
+                        
+                                                        <span class="tech-tab-name">{{ item.name }}</span>
+                        
+                                                        <p class="tech-tab-desc">{{ item.desc }}</p>
+                        
+                                                    </div>
+                        
+                                                    {% endfor %}
+                        
+                                                </div>
+                        
+                                            </div>
 
-                        <!-- Tech Stack -->
-                        <div class="skill-col">
-                            <h3>TECH_STACK</h3>
-                            <div class="tech-cloud-console">
-                                {% for item in data.skills.technologies %}
-                                <div class="tech-item-wrapper">
-                                    <span class="console-tag collapsible-tag">{{ item.name }}</span>
-                                    <div class="tag-desc">{{ item.desc }}</div>
-                                </div>
-                                {% endfor %}
+                </div>
+            </div>
+        <!-- Revolving Library -->
+        <section id="library">
+            <div class="container">
+                <div class="mini-console">
+                    <div class="console-header-small">READ_LOG.DB</div>
+                    <div class="revolving-container">
+                        <div class="revolving-track" id="revolving-track">
+                            {% for book in data.library %}
+                            <div class="revolving-item">
+                                <span class="rev-title">{{ book.title }}</span>
+                                <span class="rev-author">by {{ book.author }}</span>
+                                <p class="rev-brief">"{{ book.brief }}"</p>
                             </div>
+                            {% endfor %}
+                            {% for book in data.library %}
+                            <div class="revolving-item">
+                                <span class="rev-title">{{ book.title }}</span>
+                                <span class="rev-author">by {{ book.author }}</span>
+                                <p class="rev-brief">"{{ book.brief }}"</p>
+                            </div>
+                            {% endfor %}
                         </div>
-
-                        <!-- Certifications -->
-                        <div class="skill-col">
-                            <h3>CERTIFICATIONS</h3>
-                            <ul class="skill-list-simple">
-                                {% for item in data.skills.certifications %}
-                                <li class="collapsible-skill">
-                                    <div class="skill-head">> {{ item.name }}</div>
-                                    <div class="skill-desc">{{ item.desc }}</div>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-
                     </div>
                 </div>
             </div>
@@ -203,7 +363,7 @@
                         <div class="profile-container">
                             <img src="{{ url_for('static', filename='pfp.jpeg') }}" alt="Arvindhan" class="profile-img-rounded">
                         </div>
-                        <h2>> INITIALIZE_COMMS</h2>
+                        <h2> INITIALIZE_COMMS</h2>
                         <div class="status-indicator">
                             <span class="status-dot"></span> {{ data.contact.status }}
                         </div>
@@ -233,7 +393,7 @@
                     <!-- Right: Ally Box -->
                     <div class="ally-sidebar">
                         <div class="pixel-card ally-card">
-                            <h3 class="ally-alert">> SIGNAL_DETECTED</h3>
+                            <h3 class="ally-alert"> SIGNAL_DETECTED</h3>
                             {% for collab in data.collaborators %}
                             <div class="ally-content">
                                 <span class="ally-name">{{ collab.name }}</span>
@@ -258,37 +418,75 @@
     </footer>
 
     <script>
-        // ... (Existing Canvas Logic) ...
+        // --- Immersive Matrix Rain 2.0 ---
         const canvas = document.getElementById('pixel-bg');
         const ctx = canvas.getContext('2d');
         let width = canvas.width = window.innerWidth;
         let height = canvas.height = window.innerHeight;
-        const stars = [];
-        class Star {
-            constructor() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 3 + 1;
-                this.speed = Math.random() * 1.5 + 0.5;
-                this.color = Math.random() > 0.8 ? '#ff0055' : '#00ff9f';
+        
+        const chars = '01ABCDEFGHIJKLMNOPQRSTUVWXYZ@#$%&*+-='; 
+        const fontSize = 16;
+        
+        // Define layers for parallax (speed, size, opacity, glow)
+        const layers = [
+            { speed: 0.5, size: 10, opacity: 0.1, color: '#1e382a', drops: [] }, // Back
+            { speed: 1.0, size: 14, opacity: 0.3, color: '#315c2b', drops: [] }, // Mid
+            { speed: 1.5, size: 18, opacity: 0.6, color: '#9ea93f', drops: [], glow: true } // Front
+        ];
+
+        // Initialize drops for each layer
+        layers.forEach(layer => {
+            const columns = width / layer.size;
+            for(let i = 0; i < columns; i++) {
+                layer.drops[i] = Math.random() * -100; // Stagger start
             }
-            update() {
-                this.y += this.speed;
-                if (this.y > height) { this.y = 0; this.x = Math.random() * width; }
-            }
-            draw() { ctx.fillStyle = this.color; ctx.fillRect(this.x, this.y, this.size, this.size); }
-        }
-        for (let i = 0; i < 80; i++) stars.push(new Star());
+        });
+
         function animate() {
-            ctx.fillStyle = 'rgba(5, 5, 5, 0.2)';
+            // Dark trail fade
+            ctx.fillStyle = 'rgba(24, 31, 28, 0.15)';
             ctx.fillRect(0, 0, width, height);
-            stars.forEach(star => { star.update(); star.draw(); });
+            
+            layers.forEach(layer => {
+                ctx.font = `${layer.size}px monospace`;
+                
+                for(let i = 0; i < layer.drops.length; i++) {
+                    const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                    const x = i * layer.size;
+                    const y = layer.drops[i] * layer.size;
+
+                    // Set styling
+                    if (layer.glow) {
+                        ctx.shadowBlur = 8;
+                        ctx.shadowColor = layer.color;
+                    } else {
+                        ctx.shadowBlur = 0;
+                    }
+                    
+                    ctx.fillStyle = layer.color;
+                    ctx.globalAlpha = layer.opacity;
+                    ctx.fillText(text, x, y);
+                    
+                    // Reset opacity for next draws
+                    ctx.globalAlpha = 1.0;
+
+                    // Loop behavior
+                    if(y > height && Math.random() > 0.98) {
+                        layer.drops[i] = 0;
+                    }
+                    
+                    layer.drops[i] += layer.speed;
+                }
+            });
+            
             requestAnimationFrame(animate);
         }
+
         animate();
         window.addEventListener('resize', () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
+            // Re-init logic could be added here for perfect resize, but simple width/height update works well
         });
 
         // Glitch Links
@@ -320,20 +518,13 @@
                 toggleIcon.innerText = '[ - ]';
             }
         });
-
-        // --- Skill Collapsibles ---
-        document.querySelectorAll('.collapsible-skill').forEach(item => {
-            item.addEventListener('click', () => {
-                item.classList.toggle('active');
-            });
-        });
     </script>
 
     <!-- Theme Modal -->
     <div class="theme-modal-overlay" id="theme-modal-overlay">
         <div class="theme-modal">
             <div class="theme-modal-header">
-                <h2>> SYSTEM_THEMES</h2>
+                <h2> SYSTEM_THEMES</h2>
                 <button class="close-modal" id="theme-close-btn">[ X ]</button>
             </div>
             <div class="theme-grid" id="theme-grid">
@@ -343,6 +534,19 @@
     </div>
 
     <script>
+        // --- Back to Top ---
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300 && window.innerWidth <= 768) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
         // --- Theme System ---
         const themes = [
             { id: 'forest', name: 'Forest Tech', colors: ['#181f1c', '#9ea93f', '#315c2b'] },
