@@ -723,6 +723,7 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
         gap: 25px;
     }
     .pixel-card { text-align: center; }
+    .badge { align-self: center; } /* Center achievement badges */
     .tech-stack { justify-content: center; display: flex; flex-wrap: wrap; }
 
     .timeline-entry { padding-left: 10px; margin-bottom: 20px; }
