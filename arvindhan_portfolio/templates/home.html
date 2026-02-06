@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM.ROOT // {{ data.site_metadata.title }}</title>
+    <!-- Pixel Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='themes.css') }}">
+</head>
+<body>
+
+    <!-- Visual Effects -->
+    <canvas id="pixel-bg"></canvas>
+    <div class="scanlines"></div>
+    <div class="glitch-overlay"></div>
+
+    <nav class="pixel-nav">
+        <div class="nav-brand">ARVINDHAN.EXE</div>
+        <div class="nav-links">
+            <a href="#hero" class="glitch-link">[ Start ]</a>
+            <a href="#about" class="glitch-link">[ Bio ]</a>
+            <a href="#projects" class="glitch-link">[ Projects ]</a>
+            <a href="#skills" class="glitch-link">[ Stats ]</a>
+            <a href="#contact" class="glitch-link">[ Comms ]</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-box">
+                    <h1 class="glitch-text">{{ data.hero.name }}</h1>
+                    <p class="hero-tag">> {{ data.hero.tagline }}</p>
+                    <p class="hero-desc">{{ data.hero.description }}</p>
+                    <div class="cta-wrapper">
+                        <a href="#projects" class="btn-pixel glitch-link">VIEW_WORK</a>
+                        <a href="#contact" class="btn-pixel btn-ghost glitch-link">CONTACT_ME</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="container">
+                <h2>> USER_PROFILE:</h2>
+                <div class="about-grid">
+                    <div class="bio-box">
+                        <p class="bio-text">{{ data.about.bio }}</p>
+                        <p class="bio-sub">{{ data.about.personal_story }}</p>
+                        
+                        <div class="stats-row">
+                            {% for stat in data.about.stats %}
+                            <div class="stat-item">
+                                <span class="stat-val">{{ stat.value }}</span>
+                                <span class="stat-lbl">{{ stat.label }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="timeline-box">
+                        <div class="timeline-header hover-trigger" id="timeline-toggle">
+                            <h3>> LOG_HISTORY</h3>
+                            <span class="toggle-icon">[ - ]</span>
+                        </div>
+                        <div class="timeline-content" id="timeline-content">
+                            <div class="timeline">
+                                {% for event in data.about.timeline %}
+                                <div class="timeline-entry">
+                                    <span class="time-year">[{{ event.year }}]</span>
+                                    <span class="time-title">{{ event.event }}</span>
+                                    <p class="time-desc">{{ event.desc }}</p>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="container">
+                <h2>> MISSIONS:</h2>
+                <div class="pixel-grid">
+                    {% for project in data.projects %}
+                    <div class="pixel-card">
+                        <div class="card-header">
+                            <div>
+                                <span class="card-cat">{{ project.category }}</span>
+                                <span class="card-title">{{ project.title }}</span>
+                            </div>
+                            <span class="badge">{{ project.achievements }}</span>
+                        </div>
+                        <p>{{ project.description }}</p>
+                        <div class="tech-stack">
+                            {% for tech in project.tech %}
+                            <span>{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        {% if project.url %}
+                        <div style="margin-top: 20px;">
+                            <a href="{{ project.url }}" target="_blank" class="btn-pixel" style="padding: 8px 16px; font-size: 10px;">LAUNCH_MISSION</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills">
+            <div class="container">
+                <div class="console-box">
+                    <div class="console-header">SKILL_MATRIX.DAT</div>
+                    
+                    <div class="skills-split">
+                        
+                        <!-- Core Competencies -->
+                        <div class="skill-col">
+                            <h3>CORE_MODULES</h3>
+                            <ul class="skill-list-simple">
+                                {% for item in data.skills.core_competencies %}
+                                <li class="collapsible-skill">
+                                    <div class="skill-head">> {{ item.name }}</div>
+                                    <div class="skill-desc">{{ item.desc }}</div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <!-- Tech Stack -->
+                        <div class="skill-col">
+                            <h3>TECH_STACK</h3>
+                            <div class="tech-cloud-console">
+                                {% for item in data.skills.technologies %}
+                                <div class="tech-item-wrapper">
+                                    <span class="console-tag collapsible-tag">{{ item.name }}</span>
+                                    <div class="tag-desc">{{ item.desc }}</div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <!-- Certifications -->
+                        <div class="skill-col">
+                            <h3>CERTIFICATIONS</h3>
+                            <ul class="skill-list-simple">
+                                {% for item in data.skills.certifications %}
+                                <li class="collapsible-skill">
+                                    <div class="skill-head">> {{ item.name }}</div>
+                                    <div class="skill-desc">{{ item.desc }}</div>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & Ally -->
+        <section id="contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Left: Contact Details -->
+                    <div class="contact-main">
+                        <div class="profile-container">
+                            <img src="{{ url_for('static', filename='pfp.jpeg') }}" alt="Arvindhan" class="profile-img-rounded">
+                        </div>
+                        <h2>> INITIALIZE_COMMS</h2>
+                        <div class="status-indicator">
+                            <span class="status-dot"></span> {{ data.contact.status }}
+                        </div>
+                        <p class="contact-intro">I am actively looking for opportunities to collaborate on research projects, hackathons, and innovative startups. Whether it's discussing Condensed Matter Physics or building the next big IoT solution, my channel is open.</p>
+                        
+                        <div class="contact-data-box">
+                            <div class="contact-row">
+                                <span class="label">EMAIL:</span>
+                                <a href="mailto:{{ data.contact.email }}" class="contact-link">{{ data.contact.email }}</a>
+                            </div>
+                            <div class="contact-row">
+                                <span class="label">PHONE:</span>
+                                <a href="tel:{{ data.contact.phone }}" class="contact-link">{{ data.contact.phone }}</a>
+                            </div>
+                        </div>
+
+                        <div class="action-row">
+                            <a href="mailto:{{ data.contact.email }}" class="btn-pixel">SEND_SIGNAL</a>
+                            <div class="social-icons">
+                                {% for link in data.redirects %}
+                                <a href="{{ link.url }}" class="hover-trigger"><i class="fab fa-{{ link.icon }}"></i></a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Ally Box -->
+                    <div class="ally-sidebar">
+                        <div class="pixel-card ally-card">
+                            <h3 class="ally-alert">> SIGNAL_DETECTED</h3>
+                            {% for collab in data.collaborators %}
+                            <div class="ally-content">
+                                <span class="ally-name">{{ collab.name }}</span>
+                                <span class="ally-role">[{{ collab.role }}]</span>
+                                <a href="{{ collab.url }}" target="_blank" class="btn-pixel small-btn">ESTABLISH_LINK</a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Theme Toggle -->
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button id="theme-open-btn" class="theme-toggle-btn">SELECT_THEME</button>
+    </div>
+
+    <footer>
+        <p>SYSTEM ONLINE // {{ data.hero.name }} // CLASS 11</p>
+    </footer>
+
+    <script>
+        // ... (Existing Canvas Logic) ...
+        const canvas = document.getElementById('pixel-bg');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        const stars = [];
+        class Star {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.size = Math.random() * 3 + 1;
+                this.speed = Math.random() * 1.5 + 0.5;
+                this.color = Math.random() > 0.8 ? '#ff0055' : '#00ff9f';
+            }
+            update() {
+                this.y += this.speed;
+                if (this.y > height) { this.y = 0; this.x = Math.random() * width; }
+            }
+            draw() { ctx.fillStyle = this.color; ctx.fillRect(this.x, this.y, this.size, this.size); }
+        }
+        for (let i = 0; i < 80; i++) stars.push(new Star());
+        function animate() {
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.2)';
+            ctx.fillRect(0, 0, width, height);
+            stars.forEach(star => { star.update(); star.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // Glitch Links
+        const links = document.querySelectorAll('.glitch-link');
+        const overlay = document.querySelector('.glitch-overlay');
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const target = document.querySelector(targetId);
+                overlay.classList.add('active');
+                setTimeout(() => {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    setTimeout(() => { overlay.classList.remove('active'); }, 500);
+                }, 200);
+            });
+        });
+
+        // Timeline Toggle
+        const timelineToggle = document.getElementById('timeline-toggle');
+        const timelineContent = document.getElementById('timeline-content');
+        const toggleIcon = timelineToggle.querySelector('.toggle-icon');
+
+        timelineToggle.addEventListener('click', () => {
+            timelineContent.classList.toggle('collapsed');
+            if (timelineContent.classList.contains('collapsed')) {
+                toggleIcon.innerText = '[ + ]';
+            } else {
+                toggleIcon.innerText = '[ - ]';
+            }
+        });
+
+        // --- Skill Collapsibles ---
+        document.querySelectorAll('.collapsible-skill').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+
+    <!-- Theme Modal -->
+    <div class="theme-modal-overlay" id="theme-modal-overlay">
+        <div class="theme-modal">
+            <div class="theme-modal-header">
+                <h2>> SYSTEM_THEMES</h2>
+                <button class="close-modal" id="theme-close-btn">[ X ]</button>
+            </div>
+            <div class="theme-grid" id="theme-grid">
+                <!-- Themes injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Theme System ---
+        const themes = [
+            { id: 'forest', name: 'Forest Tech', colors: ['#181f1c', '#9ea93f', '#315c2b'] },
+            { id: 'cyberpunk', name: 'Cyberpunk', colors: ['#0b1021', '#00ff9f', '#d600ff'] },
+            { id: 'solar', name: 'Solar Flare', colors: ['#1a0f00', '#ffaa00', '#ff0000'] },
+            { id: 'ocean', name: 'Ocean Depth', colors: ['#001f2b', '#00ffea', '#005f73'] },
+            { id: 'mono', name: 'Monochrome', colors: ['#000000', '#ffffff', '#888888'] },
+            { id: 'terminal', name: 'Retro Terminal', colors: ['#0d1117', '#00ff00', '#003300'] },
+            { id: 'royal', name: 'Royal Purple', colors: ['#1a0b2e', '#ffd700', '#7209b7'] },
+            { id: 'coffee', name: 'Coffee', colors: ['#2b1d16', '#d7ccc8', '#795548'] },
+            { id: 'midnight', name: 'Midnight', colors: ['#020417', '#818cf8', '#312e81'] },
+            { id: 'candy', name: 'Candy', colors: ['#2a1b2d', '#ff6ec7', '#bd93f9'] },
+            { id: 'dracula', name: 'Dracula', colors: ['#282a36', '#ff79c6', '#bd93f9'] },
+            { id: 'nord', name: 'Nord', colors: ['#2e3440', '#88c0d0', '#5e81ac'] },
+            { id: 'gruvbox', name: 'Gruvbox', colors: ['#282828', '#fabd2f', '#fe8019'] },
+            { id: 'synth', name: 'Synthwave', colors: ['#240046', '#ff9e00', '#ff0054'] },
+            { id: 'matrix', name: 'Matrix', colors: ['#000000', '#00ff41', '#003b00'] },
+            { id: 'sunset', name: 'Sunset', colors: ['#2d1b2e', '#ffbe0b', '#ff006e'] },
+            { id: 'slate', name: 'Slate', colors: ['#0f172a', '#94a3b8', '#475569'] },
+            { id: 'mint', name: 'Mint', colors: ['#0f2018', '#52ffb8', '#1e7054'] },
+            { id: 'lavender', name: 'Lavender', colors: ['#181621', '#cdb4db', '#a2d2ff'] },
+            { id: 'crimson', name: 'Crimson', colors: ['#1a0505', '#ff0000', '#660000'] },
+            { id: 'gold', name: 'Gold Rush', colors: ['#1a1600', '#ffd700', '#806b00'] },
+            { id: 'ice', name: 'Iceberg', colors: ['#0d1b21', '#00ffff', '#005f7a'] },
+            { id: 'volcano', name: 'Volcano', colors: ['#1f1212', '#ff5722', '#5d4037'] },
+            { id: 'toxic', name: 'Toxic', colors: ['#121a12', '#c6ff00', '#33691e'] },
+            { id: 'cotton', name: 'Cotton Candy', colors: ['#1f1f2e', '#ff99c8', '#a9def9'] },
+            { id: 'contrast', name: 'High Contrast', colors: ['#000000', '#ffff00', '#ffffff'] },
+            { id: 'blueprint', name: 'Blueprint', colors: ['#002b36', '#268bd2', '#859900'] },
+            { id: 'vampire', name: 'Vampire', colors: ['#0a0a0a', '#ff0000', '#5c0000'] },
+            { id: 'moss', name: 'Moss', colors: ['#1b261b', '#8fbc8f', '#2f4f4f'] },
+            { id: 'steel', name: 'Steel', colors: ['#191c20', '#76a5af', '#37474f'] }
+        ];
+
+        const themeGrid = document.getElementById('theme-grid');
+        const themeModal = document.getElementById('theme-modal-overlay');
+        const openBtn = document.getElementById('theme-open-btn');
+        const closeBtn = document.getElementById('theme-close-btn');
+
+        // Render Themes
+        themes.forEach(theme => {
+            const btn = document.createElement('div');
+            btn.className = 'theme-btn';
+            btn.dataset.theme = theme.id;
+            
+            const preview = document.createElement('div');
+            preview.className = 'theme-preview';
+            theme.colors.forEach(c => {
+                const span = document.createElement('div');
+                span.className = 'tp-color';
+                span.style.backgroundColor = c;
+                preview.appendChild(span);
+            });
+
+            const name = document.createElement('div');
+            name.className = 'theme-name';
+            name.innerText = theme.name;
+
+            btn.appendChild(preview);
+            btn.appendChild(name);
+            
+            btn.addEventListener('click', () => {
+                setTheme(theme.id);
+                themeModal.classList.remove('active');
+            });
+
+            themeGrid.appendChild(btn);
+        });
+
+        // Theme Logic
+        function setTheme(themeId) {
+            // Remove all theme classes
+            document.body.className = '';
+            document.body.classList.add('theme-' + themeId);
+            localStorage.setItem('arvindhan_theme', themeId);
+            
+            // Update active state in modal
+            document.querySelectorAll('.theme-btn').forEach(b => {
+                b.classList.remove('active-theme');
+                if(b.dataset.theme === themeId) b.classList.add('active-theme');
+            });
+        }
+
+        // Init
+        const savedTheme = localStorage.getItem('arvindhan_theme') || 'forest';
+        setTheme(savedTheme);
+
+        // Modal Events
+        openBtn.addEventListener('click', () => themeModal.classList.add('active'));
+        closeBtn.addEventListener('click', () => themeModal.classList.remove('active'));
+        themeModal.addEventListener('click', (e) => {
+            if(e.target === themeModal) themeModal.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

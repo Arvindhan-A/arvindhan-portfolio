@@ -1,0 +1,119 @@
+{
+  "hero": {
+    "name": "Arvindhan",
+    "tagline": "PHYSICS. CODE. INNOVATION.",
+    "description": "Class 11 Student @ Sandipani Vidyalaya | IoT Systems Engineer | Full-Stack Developer",
+    "cta_primary": "VIEW_WORK",
+    "cta_secondary": "CONTACT_ME"
+  },
+  "about": {
+    "bio": "I am a Class 11 student at Sandipani Vidyalaya, formerly achieving academic excellence at Jawahar Vidyalaya (up to Class 10). My work lies at the intersection of Condensed Matter Physics and Embedded Systems. I don't just learn theory; I apply it to build integrated IoT solutions, from environmental drone payloads to secure communication platforms.",
+    "personal_story": "My journey began with a curiosity about the fundamental laws of the universe. This drove me to explore how physics principles govern electronics. Today, I actively research topics like Quantum Mechanics and Thermodynamics while prototyping practical hardware solutions.",
+    "stats": [
+      {"label": "Class 10 Score", "value": "476/500"},
+      {"label": "Active Projects", "value": "5+"},
+      {"label": "Languages", "value": "3+"},
+      {"label": "Competitions", "value": "1st Place"}
+    ],
+    "timeline": [
+        {
+            "year": "2025-2026 (Current)",
+            "event": "Class 11: Physics & Innovation",
+            "desc": "Studying at Sandipani Vidyalaya. Focusing on core Physics/Math fundamentals. Building advanced electronics prototypes and preparing for Olympiads."
+        },
+        {
+            "year": "2025",
+            "event": "IITM Electronic Systems",
+            "desc": "Completed the IITM Online Course on Electronic Systems (6-week intensive). Focused on embedded system design, circuit analysis, and hardware-software integration."
+        },
+        {
+            "year": "2024",
+            "event": "IITM Data Science",
+            "desc": "Completed the IITM Data Science Course (6-week intensive). Gained proficiency in statistical modeling, data visualization, and Python-based analytics."
+        },
+        {
+            "year": "2024",
+            "event": "GAIA Sentinel Win",
+            "desc": "Winner (1st Place): School Project Competition for GAIA Sentinel (IoT Drone System). Developed OOP Python projects and basic hardware prototypes."
+        },
+        {
+            "year": "2023",
+            "event": "Academic Excellence",
+            "desc": "Completed Class 10 at Jawahar Vidyalaya with distinction (476/500 - 95.2%). Established strong fundamentals in Physics and Math."
+        }
+    ]
+  },
+  "skills": {
+    "core_competencies": [
+      {"name": "IoT System Design", "desc": "End-to-end architecture of connected devices, sensors, and cloud infrastructure."},
+      {"name": "Full-Stack Web", "desc": "Building scalable web apps using React, Flask, and modern database solutions."},
+      {"name": "Embedded Systems", "desc": "Programming microcontrollers (ESP32, Arduino) with C++ and MicroPython for real-time control."},
+      {"name": "Physics Simulation", "desc": "Modelling physical phenomena using Python (NumPy, SciPy) for research and analysis."},
+      {"name": "Database Management", "desc": "Designing efficient schemas and managing data flow with PostgreSQL and Supabase."},
+      {"name": "Object-Oriented Programming", "desc": "Writing clean, modular, and reusable code using advanced OOP principles in Python."}
+    ],
+    "technologies": [
+      {"name": "Python", "desc": "Primary language for backend, automation, and data analysis."},
+      {"name": "Flask", "desc": "Lightweight web framework for building APIs and microservices."},
+      {"name": "ESP32", "desc": "Go-to microcontroller for Wi-Fi/Bluetooth enabled IoT projects."},
+      {"name": "MicroPython", "desc": "Rapid prototyping for embedded hardware."},
+      {"name": "JavaScript", "desc": "Interactive frontend development."},
+      {"name": "PostgreSQL", "desc": "Robust relational database for complex data requirements."}
+    ],
+    "certifications": [
+        {"name": "IITM ELECTRONIC SYSTEMS (6-WK)", "desc": "Intensive course on circuit design, op-amps, and embedded logic."},
+        {"name": "IITM DATA SCIENCE (6-WK)", "desc": "Comprehensive training in statistics, ML algorithms, and data viz."}
+    ]
+  },
+  "projects": [
+    {
+      "title": "GAIA Sentinel",
+      "category": "IoT & Environmental Tech",
+      "description": "A pioneering autonomous environmental monitoring system. GAIA Sentinel integrates ESP32-based drone payloads with a ground sensor network to capture real-time, hyper-local air quality (MQ135) and water quality data. The system features cloud telemetry for instant data visualization and analysis, designed to aid in rapid environmental assessment.",
+      "tech": ["ESP32", "MicroPython", "Cloud"],
+      "achievements": "1ST PLACE WINNER",
+      "url": "https://gaiasentinel.online"
+    },
+    {
+      "title": "Secure Messenger",
+      "category": "Web Security",
+      "description": "Real-time group messaging platform featuring End-to-End encryption and admin data visualization.",
+      "tech": ["Flask", "SocketIO", "Crypto"],
+      "achievements": "E2E ENCRYPTED"
+    },
+    {
+      "title": "Study Companion",
+      "category": "Productivity Tool",
+      "description": "Integrated productivity suite with Pomodoro timer, Lofi music player, and task management tools.",
+      "tech": ["Python", "Tkinter", "GUI"],
+      "achievements": "PRODUCTIVITY"
+    }
+  ],
+  "collaborators": [
+    {
+        "name": "Abinaav K",
+        "role": "TOP_COLLABORATOR",
+        "url": "https://abinaavk.com"
+    }
+  ],
+  "contact": {
+    "email": "gaiake.arvindhan@gmail.com",
+    "phone": "+91 8807823244",
+    "status": "OPEN TO COLLABORATE"
+  },
+  "redirects": [
+    {
+      "name": "LinkedIn",
+      "url": "#",
+      "icon": "linkedin"
+    },
+    {
+      "name": "GitHub",
+      "url": "https://github.com/arvindhanscooby2-a11y",
+      "icon": "github"
+    }
+  ],
+  "site_metadata": {
+    "title": "Arvindhan // Portfolio"
+  }
+}
