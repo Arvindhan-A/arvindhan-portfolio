@@ -15,6 +15,11 @@
     margin: 0; padding: 0; box-sizing: border-box; 
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 html { scroll-behavior: smooth; }
 
 /* --- Custom Scrollbar --- */
@@ -592,21 +597,37 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
 
 /* ================= MOBILE OPTIMIZATIONS ================= */
 @media (max-width: 768px) {
-    .container { padding: 0 25px; }
-    section { padding: 50px 0; }
+    .container { padding: 0 15px; }
+    section { padding: 40px 0; }
     
-    .section-title { text-align: center; }
+    .section-title { text-align: center; font-size: 20px; }
 
-    main { padding: 20px 0 80px 0; }
+    main { padding: 10px 0 60px 0; }
 
     body { 
-        font-size: 18px; 
+        font-size: 16px; 
         width: 100%;
         overflow-x: hidden;
     }
 
     /* Hide Top Bar on Mobile */
     .pixel-nav { display: none !important; }
+
+    /* Hero Box mobile adjustments */
+    .hero-box {
+        padding: 20px;
+        border-width: 3px;
+    }
+    .hero-box h1 {
+        white-space: normal;
+        width: auto;
+        animation: none;
+        border-right: none;
+        display: block;
+        text-align: center;
+    }
+    .hero-desc { font-size: 1rem; }
+    .btn-pixel { margin-right: 10px; margin-bottom: 10px; padding: 12px 20px; }
 
     /* Fix Library Clipping */
     .revolving-track {
@@ -615,7 +636,8 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
 
     /* Skills.dat optimization */
     .skills-grid-complex {
-        gap: 25px;
+        grid-template-columns: 1fr;
+        gap: 20px;
         padding: 0;
     }
     .skill-card-complex {
@@ -748,4 +770,21 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
     .contact-row { justify-content: center; }
     .action-row { justify-content: center; flex-direction: column; gap: 20px; }
     .social-icons { justify-content: center; display: flex; width: 100%; margin-top: 10px; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 10px; }
+    
+    .hero-box { padding: 15px; }
+    .hero-box h1 { font-size: 28px; }
+    
+    .skill-card-complex { padding: 15px; }
+    .tech-stack-tabs { padding: 10px; }
+    
+    .grid-3x3 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .contact-data-box { padding: 15px; }
+    .contact-link { font-size: 1rem; }
 }
