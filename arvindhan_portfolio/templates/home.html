@@ -4,6 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SYSTEM.ROOT // {{ data.site_metadata.title }}</title>
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="{{ data.site_metadata.title }}">
+    <meta name="description" content="{{ data.site_metadata.description }}">
+    <meta name="keywords" content="{{ data.site_metadata.keywords }}">
+    <meta name="author" content="{{ data.site_metadata.author }}">
+    <meta name="theme-color" content="{{ data.site_metadata.theme_color }}">
+    
+    <!-- SEO Optimization -->
+    <link rel="canonical" href="{{ request.url }}">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="bingbot" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:title" content="{{ data.site_metadata.title }}">
+    <meta property="og:description" content="{{ data.site_metadata.description }}">
+    <meta property="og:image" content="{{ url_for('static', filename='pfp.jpeg', _external=True) }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ request.url }}">
+    <meta property="twitter:title" content="{{ data.site_metadata.title }}">
+    <meta property="twitter:description" content="{{ data.site_metadata.description }}">
+    <meta property="twitter:image" content="{{ url_for('static', filename='pfp.jpeg', _external=True) }}">
+
     <!-- Pixel Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -18,7 +46,7 @@
     <div class="glitch-overlay"></div>
 
     <nav class="pixel-nav">
-        <div class="nav-brand">ARVINDHAN.EXE</div>
+        <div class="nav-brand">ARVINDHAN A.EXE</div>
         <div class="nav-links">
             <a href="#hero" class="glitch-link">[ Start ]</a>
             <a href="#about" class="glitch-link">[ Bio ]</a>
