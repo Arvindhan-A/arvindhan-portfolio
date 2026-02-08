@@ -1,11 +1,11 @@
 :root {
-    /* Forest Tech Palette */
-    --bg-color: #181f1c;      /* Carbon Black (Deepest) */
-    --card-bg: #274029;       /* Dark Spruce */
-    --text-primary: #9ea93f;  /* Lime Moss (Brightest) */
-    --text-secondary: #60712f; /* Fern */
-    --accent: #315c2b;        /* Hunter Green */
-    --white: #ffffff;
+    /* Latte Palette */
+    --bg-color: #fdfaf3;      
+    --card-bg: #f5ede0;       
+    --text-primary: #5d4037;  
+    --text-secondary: #8d6e63; 
+    --accent: #a1887f;        
+    --white: #3e2723;
     
     --font-headers: 'Press Start 2P', cursive;
     --font-body: 'VT323', monospace;
