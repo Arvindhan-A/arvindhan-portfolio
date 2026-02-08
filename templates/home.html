@@ -32,6 +32,9 @@
     <meta property="twitter:description" content="{{ data.site_metadata.description }}">
     <meta property="twitter:image" content="{{ url_for('static', filename='pfp.jpeg', _external=True) }}">
 
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='pfp.jpeg') }}" type="image/jpeg">
+
     <!-- Pixel Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -56,7 +59,7 @@
         </div>
     </nav>
 
-    <button id="back-to-top" class="back-to-top">
+    <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
         <i class="fas fa-chevron-up"></i>
     </button>
 
@@ -104,10 +107,10 @@
                         </div>
                     </div>
                     <div class="timeline-box">
-                        <div class="timeline-header hover-trigger" id="timeline-toggle">
+                        <button class="timeline-header hover-trigger" id="timeline-toggle" aria-expanded="true" aria-controls="timeline-content">
                             <h3> LOG_HISTORY</h3>
                             <span class="toggle-icon">[ - ]</span>
-                        </div>
+                        </button>
                         <div class="timeline-content" id="timeline-content">
                             <div class="timeline">
                                 {% for event in data.about.timeline %}
@@ -361,7 +364,7 @@
                     <!-- Left: Contact Details -->
                     <div class="contact-main">
                         <div class="profile-container">
-                            <img src="{{ url_for('static', filename='pfp.jpeg') }}" alt="Arvindhan" class="profile-img-rounded">
+                            <img src="{{ url_for('static', filename='pfp.jpeg') }}" alt="Arvindhan" class="profile-img-rounded" loading="lazy" width="120" height="120">
                         </div>
                         <h2> INITIALIZE_COMMS</h2>
                         <div class="status-indicator">
@@ -384,7 +387,7 @@
                             <a href="mailto:{{ data.contact.email }}" class="btn-pixel">SEND_SIGNAL</a>
                             <div class="social-icons">
                                 {% for link in data.redirects %}
-                                <a href="{{ link.url }}" class="hover-trigger"><i class="fab fa-{{ link.icon }}"></i></a>
+                                <a href="{{ link.url }}" class="hover-trigger" aria-label="{{ link.name }}"><i class="fab fa-{{ link.icon }}"></i></a>
                                 {% endfor %}
                             </div>
                         </div>
@@ -528,8 +531,10 @@
             timelineContent.classList.toggle('collapsed');
             if (timelineContent.classList.contains('collapsed')) {
                 toggleIcon.innerText = '[ + ]';
+                timelineToggle.setAttribute('aria-expanded', 'false');
             } else {
                 toggleIcon.innerText = '[ - ]';
+                timelineToggle.setAttribute('aria-expanded', 'true');
             }
         });
     </script>
