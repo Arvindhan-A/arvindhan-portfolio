@@ -88,6 +88,70 @@ body {
 }
 .nav-links a:hover::after { width: 80%; }
 
+/* --- Mobile Menu --- */
+.mobile-menu-btn {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.mobile-menu-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.close-mobile-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    font-family: var(--font-headers);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+}
+
+.mobile-nav-links a {
+    font-family: var(--font-headers);
+    font-size: 20px;
+    color: var(--white);
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.mobile-nav-links a:hover {
+    color: var(--text-primary);
+    transform: scale(1.1);
+}
+
 /* --- Hero --- */
 .container { 
     max-width: 1100px; 
@@ -633,7 +697,7 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
 }
 
 /* ================= MOBILE OPTIMIZATIONS ================= */
-@media (max-width: 768px) {
+@media (max-width: 1077px), (max-height: 500px) and (orientation: landscape) {
     .container { padding: 0 15px; }
     section { padding: 40px 0; }
     
@@ -647,8 +711,13 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
         overflow-x: hidden;
     }
 
-    /* Hide Top Bar on Mobile */
-    .pixel-nav { display: none !important; }
+    /* Mobile Nav */
+    .pixel-nav { 
+        display: flex !important; 
+        padding: 10px 15px;
+    }
+    .nav-links { display: none; }
+    .mobile-menu-btn { display: block; }
 
     /* Hero Box mobile adjustments */
     .hero-box {
@@ -803,29 +872,41 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
         text-align: center;
     }
     .contact-main h2 {
-        font-size: 18px; /* Smaller font for mobile */
+        font-size: clamp(16px, 6vw, 24px); /* Dynamically scale based on viewport width */
+        width: 100%;
+        overflow-wrap: break-word;
     }
     .profile-container { display: flex; justify-content: center; }
     .status-indicator { justify-content: center; }
+    .contact-data-box {
+        padding: 20px; /* Match mini-console padding */
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden; /* Prevent overflow like mini-console */
+    }
     .contact-row { 
         justify-content: center; 
-        flex-direction: column; /* Stack label and link */
+        flex-direction: column; 
         gap: 5px;
+        width: 100%;
     }
     .contact-row .label {
-        width: auto; /* Remove fixed width */
-        margin-bottom: 5px;
+        width: 100%; /* Full width label */
+        margin: 0;
+        text-align: center;
     }
     .contact-link {
-        font-size: 1rem;
-        word-break: break-all; /* Prevent overflow of long emails/links */
+        font-size: clamp(12px, 4vw, 16px); /* Scale link text as well */
+        word-break: break-all;
+        display: block;
+        width: 100%;
     }
     .action-row { justify-content: center; flex-direction: column; gap: 20px; }
     .social-icons { justify-content: center; display: flex; width: 100%; margin-top: 10px; }
 }
 
 @media (max-width: 480px) {
-    .container { padding: 0 10px; }
+    .container { padding: 0 15px; } /* Ensure consistent container padding */
     
     .hero-box { padding: 15px; }
     .hero-box h1 { font-size: 28px; }
@@ -838,6 +919,17 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
         gap: 6px;
     }
     
-    .contact-data-box { padding: 15px; }
-    .contact-link { font-size: 1rem; }
+    .contact-data-box { 
+        padding: 15px; 
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .contact-link { 
+        font-size: 0.9rem; /* Slightly smaller to fit */
+        word-break: break-all;
+    }
+    .contact-main h2 {
+        font-size: 18px;
+    }
 }

@@ -39,4 +39,4 @@ def get_data():
     return jsonify(load_data())
 
 if __name__ == '__main__':
-    app.run(debug=True,port=2323)
+    app.run(debug=True,port=2333)

@@ -57,7 +57,21 @@
             <a href="#skills" class="glitch-link">[ Stats ]</a>
             <a href="#contact" class="glitch-link">[ Comms ]</a>
         </div>
+        <button class="mobile-menu-btn" aria-label="Toggle Menu">
+            <i class="fas fa-bars"></i>
+        </button>
     </nav>
+
+    <div class="mobile-menu-overlay">
+        <button class="close-mobile-menu" aria-label="Close Menu">[ X ]</button>
+        <div class="mobile-nav-links">
+            <a href="#hero" class="glitch-link mobile-link">[ Start ]</a>
+            <a href="#about" class="glitch-link mobile-link">[ Bio ]</a>
+            <a href="#projects" class="glitch-link mobile-link">[ Projects ]</a>
+            <a href="#skills" class="glitch-link mobile-link">[ Stats ]</a>
+            <a href="#contact" class="glitch-link mobile-link">[ Comms ]</a>
+        </div>
+    </div>
 
     <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
         <i class="fas fa-chevron-up"></i>
@@ -670,6 +684,32 @@
         closeBtn.addEventListener('click', () => themeModal.classList.remove('active'));
         themeModal.addEventListener('click', (e) => {
             if(e.target === themeModal) themeModal.classList.remove('active');
+        });
+
+        // --- Mobile Menu ---
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+        const closeMobileMenu = document.querySelector('.close-mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        const closeMenu = () => {
+            mobileMenuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        closeMobileMenu.addEventListener('click', closeMenu);
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                closeMenu();
+                // Smooth scroll is handled by the existing glitch-link logic, 
+                // but we need to ensure the overlay closes first.
+            });
         });
     </script>
 </body>
