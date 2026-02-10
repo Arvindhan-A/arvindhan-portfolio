@@ -20,7 +20,10 @@ img {
     height: auto;
 }
 
-html { scroll-behavior: smooth; }
+html { 
+    scroll-behavior: smooth; 
+    zoom: 1.25;
+}
 
 /* --- Custom Scrollbar --- */
 ::-webkit-scrollbar { width: 8px; }
