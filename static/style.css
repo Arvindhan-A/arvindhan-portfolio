@@ -802,9 +802,24 @@ footer { padding: 50px 0; text-align: center; border-top: 4px solid var(--text-p
         gap: 40px;
         text-align: center;
     }
+    .contact-main h2 {
+        font-size: 18px; /* Smaller font for mobile */
+    }
     .profile-container { display: flex; justify-content: center; }
     .status-indicator { justify-content: center; }
-    .contact-row { justify-content: center; }
+    .contact-row { 
+        justify-content: center; 
+        flex-direction: column; /* Stack label and link */
+        gap: 5px;
+    }
+    .contact-row .label {
+        width: auto; /* Remove fixed width */
+        margin-bottom: 5px;
+    }
+    .contact-link {
+        font-size: 1rem;
+        word-break: break-all; /* Prevent overflow of long emails/links */
+    }
     .action-row { justify-content: center; flex-direction: column; gap: 20px; }
     .social-icons { justify-content: center; display: flex; width: 100%; margin-top: 10px; }
 }
