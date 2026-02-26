@@ -2,12 +2,12 @@
   "hero": {
     "name": "ARVINDHAN",
     "tagline": "PHYSICS. CODE. INNOVATION.",
-    "description": "Class 11 Student @ Sandipani Vidyalaya | IoT Systems Engineer | Full-Stack Developer",
+    "description": "Class 12 Student @ Sandipani Vidyalaya | IoT Systems Engineer | Full-Stack Developer",
     "cta_primary": "VIEW_WORK",
     "cta_secondary": "CONTACT_ME"
   },
   "about": {
-    "bio": "I am a Class 11 student at Sandipani Vidyalaya, formerly achieving academic excellence at Jawahar Vidyalaya (up to Class 10). My work lies at the intersection of Condensed Matter Physics and Embedded Systems. I don't just learn theory; I apply it to build integrated IoT solutions, from environmental drone payloads to secure communication platforms.",
+    "bio": "I am a Class 12 student at Sandipani Vidyalaya, formerly achieving academic excellence at Jawahar Vidyalaya (up to Class 10). My work lies at the intersection of Condensed Matter Physics and Embedded Systems. I don't just learn theory; I apply it to build integrated IoT solutions, from environmental drone payloads to secure communication platforms.",
     "personal_story": "My journey began with a curiosity about the fundamental laws of the universe. This drove me to explore how physics principles govern electronics. Today, I actively research topics like Quantum Mechanics and Thermodynamics while prototyping practical hardware solutions.",
     "stats": [
       {"label": "Class 10 Score", "value": "476/500"},
@@ -22,7 +22,7 @@
     "timeline": [
         {
             "year": "2025-2026 (Current)",
-            "event": "Class 11: Physics & Innovation",
+            "event": "Class 12: Physics & Innovation",
             "desc": "Studying at Sandipani Vidyalaya. Focusing on core Physics/Math fundamentals. Building advanced electronics prototypes and preparing for Olympiads."
         },
         {
@@ -156,7 +156,7 @@
   ],
   "site_metadata": {
     "title": "ARVINDHAN A // Official Portfolio - ARVINDHAN.A",
-    "description": "The official portfolio of ARVINDHAN A (ARVINDHAN.A). A Class 11 Student, IoT Systems Engineer, and Full-Stack Developer specialized in Physics and Code. Discover ARVINDHAN A's projects like GAIA Sentinel.",
+    "description": "The official portfolio of ARVINDHAN A (ARVINDHAN.A). A Class 12 Student, IoT Systems Engineer, and Full-Stack Developer specialized in Physics and Code. Discover ARVINDHAN A's projects like GAIA Sentinel.",
     "keywords": "ARVINDHAN A, ARVINDHAN.A, ARVINDHAN, ARVINDHAN Official, ARVINDHAN Portfolio, ARVINDHAN GAIA Sentinel, ARVINDHAN IoT, ARVINDHAN Physics, ARVINDHAN Developer, ARVINDHAN Chennai, ARVINDHAN Sandipani Vidyalaya",
     "author": "ARVINDHAN A",
     "theme_color": "#fdfaf3"
