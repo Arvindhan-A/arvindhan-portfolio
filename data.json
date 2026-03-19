@@ -80,26 +80,68 @@
   },
   "projects": [
     {
-      "title": "GAIA Sentinel",
-      "category": "IoT & Environmental Tech",
-      "description": "A pioneering autonomous environmental monitoring system. GAIA Sentinel integrates ESP32-based drone payloads with a ground sensor network to capture real-time, hyper-local air quality (MQ135) and water quality data. The system features cloud telemetry for instant data visualization and analysis, designed to aid in rapid environmental assessment.",
-      "tech": ["ESP32", "MicroPython", "Cloud"],
+      "title": "C12 Tracker",
+      "category": "EdTech",
+      "description": "Study progress tracker for Class 12 students with syllabus coverage, mock test analytics, performance trends, and weak area predictions for board exam preparation.",
+      "tech": ["React", "Flask", "Chart.js", "PostgreSQL", "OpenAI"],
+      "achievements": "CLASS 12 CBSE",
+      "url": "https://c12tracker.gaiasentinel.online"
+    },
+    {
+      "title": "Gaia Sentinel",
+      "category": "IoT Platform",
+      "description": "Core environmental monitoring hub with ESP32 sensor integration, real-time dashboards, cloud telemetry, and sub-second pollution alerts.",
+      "tech": ["ESP32", "MicroPython", "Flask", "PostgreSQL", "SocketIO"],
       "achievements": "1ST PLACE WINNER",
       "url": "https://gaiasentinel.online"
     },
     {
-      "title": "Secure Messenger",
-      "category": "Web Security",
-      "description": "Real-time group messaging platform featuring End-to-End encryption and admin data visualization.",
-      "tech": ["Flask", "SocketIO", "Crypto"],
-      "achievements": "E2E ENCRYPTED"
+      "title": "Hey Gaia",
+      "category": "Smart Home",
+      "description": "Raspberry Pi-powered voice assistant for smart home control with natural language processing, GAIA sensor integration, and custom automation routines.",
+      "tech": ["Raspberry Pi", "Whisper", "OpenAI", "Flask", "MQTT", "HomeAssistant"],
+      "achievements": "VOICE AI ASSISTANT",
+      "url": "https://heygaia.gaiasentinel.online"
     },
     {
-      "title": "Study Companion",
-      "category": "Productivity Tool",
-      "description": "Integrated productivity suite with Pomodoro timer, Lofi music player, and task management tools.",
-      "tech": ["Python", "Tkinter", "GUI"],
-      "achievements": "PRODUCTIVITY"
+      "title": "Music",
+      "category": "Music Platform",
+      "description": "Music streaming service with playlist curation, lofi coding sessions, offline caching, and Study Companion integration for focused development.",
+      "tech": ["Node.js", "Spotify API", "React", "PWA", "WebAudioAPI"],
+      "achievements": "STREAMING SERVICE",
+      "url": "https://music.gaiasentinel.online"
+    },
+    {
+      "title": "Platform",
+      "category": "Deployment Platform",
+      "description": "Universal app deployment platform supporting Flask/Django/Node.js with one-click Docker deploys, auto-scaling, and Gaia Sentinel monitoring integration.",
+      "tech": ["Docker", "Kubernetes", "Flask", "Nginx", "Traefik", "Prometheus"],
+      "achievements": "SELF-HOSTED APPS",
+      "url": "https://deploy.gaiasentinel.online"
+    },
+    {
+      "title": "Sandipani Vidyalaya",
+      "category": "School Management",
+      "description": "Complete school website rebuild with parent portals, teacher dashboards, attendance tracking, homework assignments, and fee management.",
+      "tech": ["Django", "PostgreSQL", "React", "PushNotifications", "EmailJS"],
+      "achievements": "V2 REBUILD",
+      "url": "https://sandipani2.gaiasentinel.online"
+    },
+    {
+      "title": "Sri Krishna's Store",
+      "category": "Business Management",
+      "description": "Billing and inventory system for textile enterprises with invoice generation, stock tracking, customer management, and financial reporting.",
+      "tech": ["Flask", "PostgreSQL", "React", "QRCode", "Stripe", "PDFKit"],
+      "achievements": "TEXTILE BILLING",
+      "url": "https://srikrishnas.store"
+    },
+    {
+      "title": "Transfer",
+      "category": "File Transfer",
+      "description": "Fast, secure file transfer optimized for GAIA sensor datasets with resumable uploads, end-to-end encryption, and transfer analytics.",
+      "tech": ["Node.js", "SocketIO", "Multer", "AWS S3", "CryptoJS"],
+      "achievements": "HIGH-SPEED GAIA",
+      "url": "https://transfer.gaiasentinel.online"
     }
   ],
   "library": [
@@ -134,6 +176,11 @@
         "name": "Abinaav K",
         "role": "TOP_COLLABORATOR",
         "url": "https://abinaavk.com"
+    },
+    {
+        "name": "Gokul",
+        "role": "COLLABORATOR",
+        "url": "https://gokul.gaiasentinel.online"
     }
   ],
 

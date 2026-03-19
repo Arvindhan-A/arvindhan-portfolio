@@ -145,9 +145,12 @@
         <section id="projects">
             <div class="container">
                 <h2 class="section-title"> MISSIONS.PY</h2>
-                <div class="pixel-grid">
+                
+                <div class="pixel-grid" id="mission-grid">
                     {% for project in data.projects %}
-                    <div class="pixel-card">
+                    <button class="pixel-card mission-card project-tab" data-project="{{ loop.index0 }}" data-category="{{ project.category }}">
+                        <div class="mission-card-glow"></div>
+                        <div class="scanline"></div>
                         <div class="card-header">
                             <div>
                                 <span class="card-cat">{{ project.category }}</span>
@@ -155,19 +158,21 @@
                             </div>
                             <span class="badge">{{ project.achievements }}</span>
                         </div>
-                        <p>{{ project.description }}</p>
-                        <div class="tech-stack">
-                            {% for tech in project.tech %}
-                            <span>{{ tech }}</span>
-                            {% endfor %}
+                        <div class="hover-indicator">
+                            VIEW_DETAILS
                         </div>
-                        {% if project.url %}
-                        <div style="margin-top: 20px;">
-                            <a href="{{ project.url }}" target="_blank" class="btn-pixel" style="padding: 8px 16px; font-size: 10px;">LAUNCH_MISSION</a>
-                        </div>
-                        {% endif %}
-                    </div>
+                    </button>
                     {% endfor %}
+                </div>
+                <div class="project-details" id="project-details">
+                    <div class="project-detail-header">
+                        <div class="detail-header-left">
+                            <span class="detail-category" id="detail-category"></span>
+                            <h3 id="detail-title">SELECT_MISSION</h3>
+                        </div>
+                        <button class="close-detail" id="close-detail">[ X ]</button>
+                    </div>
+                    <div class="project-detail-content" id="detail-content"></div>
                 </div>
             </div>
         </section>
@@ -409,16 +414,16 @@
 
                     <!-- Right: Ally Box -->
                     <div class="ally-sidebar">
+                        <h3 class="ally-alert"> SIGNAL_DETECTED</h3>
+                        {% for collab in data.collaborators %}
                         <div class="pixel-card ally-card">
-                            <h3 class="ally-alert"> SIGNAL_DETECTED</h3>
-                            {% for collab in data.collaborators %}
                             <div class="ally-content">
                                 <span class="ally-name">{{ collab.name }}</span>
                                 <span class="ally-role">[{{ collab.role }}]</span>
                                 <a href="{{ collab.url }}" target="_blank" class="btn-pixel small-btn">ESTABLISH_LINK</a>
                             </div>
-                            {% endfor %}
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -707,9 +712,102 @@
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 closeMenu();
-                // Smooth scroll is handled by the existing glitch-link logic, 
-                // but we need to ensure the overlay closes first.
             });
+        });
+
+        // --- Project Tabs ---
+        const projects = {{ data.projects | tojson }};
+        const projectTabs = document.querySelectorAll('.project-tab');
+        const projectDetails = document.getElementById('project-details');
+        const detailTitle = document.getElementById('detail-title');
+        const detailCategory = document.getElementById('detail-category');
+        const detailContent = document.getElementById('detail-content');
+        const closeDetail = document.getElementById('close-detail');
+
+        const techIcons = {
+            'React': 'fab fa-react', 'Flask': 'fas fa-flask', 'Chart.js': 'fas fa-chart-line',
+            'PostgreSQL': 'fas fa-database', 'OpenAI': 'fas fa-brain', 'ESP32': 'fas fa-microchip',
+            'MicroPython': 'fas fa-python', 'SocketIO': 'fas fa-plug', 'Raspberry Pi': 'fab fa-raspberry-pi',
+            'Whisper': 'fas fa-ear-listen', 'Node.js': 'fab fa-node-js', 'Spotify API': 'fab fa-spotify',
+            'PWA': 'fas fa-mobile-alt', 'WebAudioAPI': 'fas fa-wave-square', 'Docker': 'fab fa-docker',
+            'Kubernetes': 'fas fa-dharmachakra', 'Nginx': 'fas fa-server', 'Traefik': 'fas fa-route',
+            'Prometheus': 'fas fa-chart-bar', 'Django': 'fab fa-python', 'PushNotifications': 'fas fa-bell',
+            'EmailJS': 'fas fa-envelope', 'QRCode': 'fas fa-qrcode', 'Stripe': 'fab fa-stripe',
+            'PDFKit': 'fas fa-file-pdf', 'Multer': 'fas fa-upload', 'AWS S3': 'fab fa-aws',
+            'CryptoJS': 'fas fa-lock', 'MQTT': 'fas fa-network-wired', 'HomeAssistant': 'fas fa-home',
+            'HTML5': 'fab fa-html5', 'CSS3': 'fab fa-css3-alt', 'JavaScript': 'fab fa-js',
+            'Arduino': 'fas fa-microchip', 'Git': 'fab fa-git-alt', 'GitHub': 'fab fa-github',
+            'Python': 'fab fa-python', 'C++': 'fas fa-code'
+        };
+
+        function getTechIcon(tech) {
+            return techIcons[tech] || 'fas fa-cube';
+        }
+
+        function showProject(index) {
+            const project = projects[index];
+            detailCategory.textContent = project.category.toUpperCase();
+            detailTitle.textContent = project.title.toUpperCase();
+            detailContent.innerHTML = `
+                <p>${project.description}</p>
+                <div class="tech-stack-detailed">
+                    <h4><i class="fas fa-code"></i> TECH_STACK</h4>
+                    <div class="tech-grid">
+                        ${project.tech.map(t => `
+                            <div class="tech-item">
+                                <i class="${getTechIcon(t)}"></i>
+                                <span>${t}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+                <div class="detail-footer">
+                    <span class="badge">${project.achievements}</span>
+                    ${project.url ? `
+                    <a href="${project.url}" target="_blank" class="btn-pixel mission-launch">
+                        LAUNCH_MISSION
+                    </a>
+                    ` : ''}
+                </div>
+            `;
+            projectDetails.classList.add('active');
+            projectTabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+            projectDetails.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        projectTabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => showProject(index));
+        });
+
+        closeDetail.addEventListener('click', () => {
+            projectDetails.classList.remove('active');
+            projectTabs.forEach(tab => tab.classList.remove('active'));
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && projectDetails.classList.contains('active')) {
+                projectDetails.classList.remove('active');
+                projectTabs.forEach(tab => tab.classList.remove('active'));
+            }
+            if (e.key === 'ArrowDown' && document.activeElement.classList.contains('project-tab')) {
+                e.preventDefault();
+                const tabs = Array.from(projectTabs).filter(t => !t.classList.contains('hidden'));
+                const currentIndex = tabs.indexOf(document.activeElement);
+                if (currentIndex < tabs.length - 1) {
+                    tabs[currentIndex + 1].focus();
+                }
+            }
+            if (e.key === 'ArrowUp' && document.activeElement.classList.contains('project-tab')) {
+                e.preventDefault();
+                const tabs = Array.from(projectTabs).filter(t => !t.classList.contains('hidden'));
+                const currentIndex = tabs.indexOf(document.activeElement);
+                if (currentIndex > 0) {
+                    tabs[currentIndex - 1].focus();
+                }
+            }
         });
     </script>
 </body>
