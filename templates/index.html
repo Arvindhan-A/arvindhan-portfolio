@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light');</script>
+    <title>Arvindhan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">Arvindhan</a>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-controls">
+            <div class="theme-picker">
+                <button id="theme-btn" class="theme-btn" title="Change theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <div class="theme-dots">
+                    <button class="theme-opt" data-theme="light"><span class="theme-dot t-light"></span>Light</button>
+                    <button class="theme-opt" data-theme="jetblack"><span class="theme-dot t-jetblack"></span>Jet Black</button>
+                    <button class="theme-opt" data-theme="midnight"><span class="theme-dot t-midnight"></span>Midnight</button>
+                    <button class="theme-opt" data-theme="rose"><span class="theme-dot t-rose"></span>Rose</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="main">
+    <!-- HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-shapes">
+            <div class="shape shape-circle s1"></div>
+            <div class="shape shape-circle s2"></div>
+            <div class="shape shape-circle s3"></div>
+            <div class="shape shape-ring s4"></div>
+            <div class="shape shape-ring s5"></div>
+            <div class="shape shape-dot s6"></div>
+            <div class="shape shape-dot s7"></div>
+            <div class="shape shape-dot s8"></div>
+            <div class="shape shape-dot s9"></div>
+            <div class="shape shape-dot s10"></div>
+            <div class="shape shape-cross s11"></div>
+            <div class="shape shape-cross s12"></div>
+        </div>
+        <h1>Arvindhan</h1>
+        <p class="hero-sub">Physics. Code. Hardware.<br>Class 12 student building things that shouldn't work but do.</p>
+        <div class="hero-links">
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="sec-header">
+            <span class="sec-label">About</span>
+            <h2 class="sec-title">The short version</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I'm a Class 12 student at Sandipani Vidyalaya in Chennai. I spend most of my time between condensed matter physics and writing Python scripts that talk to sensors.</p>
+                <p>I don't just read about how things work — I build them. That's how Gaia Sentinel started: a school project that turned into a real environmental monitoring platform with custom hardware. Now it's deployed and running.</p>
+                <p>I've also done 5+ years of art training at Global Art, which sounds unrelated but helps a lot with UI design. If something looks good and works well, that's not a coincidence.</p>
+            </div>
+            <div class="about-highlights">
+                <div class="highlight-card">
+                    <span class="highlight-val">5+ yrs</span>
+                    <span class="highlight-lbl">Art training</span>
+                </div>
+                <div class="highlight-card">
+                    <span class="highlight-val">{{ projects|length }}</span>
+                    <span class="highlight-lbl">Projects shipped</span>
+                </div>
+                <div class="highlight-card">
+                    <span class="highlight-val">2</span>
+                    <span class="highlight-lbl">IITM courses</span>
+                </div>
+            </div>
+        </div>
+        <div class="focus-cards">
+            <div class="focus-card">
+                <h3>Hardware + IoT</h3>
+                <p>ESP32, sensors, circuit design. I like building things you can touch.</p>
+            </div>
+            <div class="focus-card">
+                <h3>Physics</h3>
+                <p>Condensed matter, quantum mechanics. I research this on my own time.</p>
+            </div>
+            <div class="focus-card">
+                <h3>Full-Stack</h3>
+                <p>Flask, PostgreSQL, HTML/CSS/JS. End to end, backend to frontend.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section" id="timeline">
+        <div class="sec-header">
+            <span class="sec-label">Timeline</span>
+            <h2 class="sec-title">What happened when</h2>
+        </div>
+        <div class="timeline-list">
+            {% for item in timeline %}
+            <div class="timeline-item">
+                <span class="timeline-year">{{ item.year }}</span>
+                <div class="timeline-content">
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.desc }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+        <div class="sec-header">
+            <span class="sec-label">Projects</span>
+            <h2 class="sec-title">Stuff I've actually shipped</h2>
+        </div>
+        <div class="project-grid">
+            {% for p in projects %}
+            <a href="/project/{{ p.slug }}" class="project-card">
+                <img src="{{ url_for('static', filename=p.image) }}" alt="{{ p.name }}" class="project-img" loading="lazy">
+                <span class="project-tag">{{ p.tag }}</span>
+                <h3>{{ p.name }}</h3>
+                <p>{{ p.desc }}</p>
+                <div class="project-tech">
+                    {% for t in p.tags %}
+                    <span class="tech-pill">{{ t }}</span>
+                    {% endfor %}
+                </div>
+                <span class="project-link">
+                    {{ p.url | replace('https://','') | replace('http://','') }}
+                </span>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+        <div class="sec-header">
+            <span class="sec-label">Skills</span>
+            <h2 class="sec-title">What I work with</h2>
+        </div>
+        <div class="skill-grid">
+            {% for s in skills %}
+            <a href="/skill/{{ s.slug }}" class="skill-card">
+                <div class="skill-top">
+                    <span class="skill-name">{{ s.name }}</span>
+                    <span class="skill-cat">{{ s.cat }}</span>
+                </div>
+                <p class="skill-desc">{{ s.desc }}</p>
+                <span class="skill-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+            </a>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certs">
+        <div class="sec-header">
+            <span class="sec-label">Certifications</span>
+            <h2 class="sec-title">Courses and credentials</h2>
+        </div>
+        <div class="cert-list">
+            {% for c in certs %}
+            <div class="cert-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="cert-icon"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                <span>{{ c }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- BOOKS -->
+    <section class="section" id="books">
+        <div class="sec-header">
+            <span class="sec-label">Reading</span>
+            <h2 class="sec-title">Books I've read</h2>
+        </div>
+        <div class="book-ticker-wrap">
+            <div class="book-ticker">
+                {% for b in books %}
+                <div class="book-ticker-item">
+                    <span class="book-ticker-num">{{ loop.index }}</span>
+                    <div class="book-ticker-info">
+                        <h3>{{ b.title }}</h3>
+                        <p class="book-ticker-author">{{ b.author }}</p>
+                        <p class="book-ticker-quote">"{{ b.quote }}"</p>
+                    </div>
+                </div>
+                {% endfor %}
+                {% for b in books %}
+                <div class="book-ticker-item">
+                    <span class="book-ticker-num">{{ loop.index }}</span>
+                    <div class="book-ticker-info">
+                        <h3>{{ b.title }}</h3>
+                        <p class="book-ticker-author">{{ b.author }}</p>
+                        <p class="book-ticker-quote">"{{ b.quote }}"</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="sec-header">
+            <span class="sec-label">Contact</span>
+            <h2 class="sec-title">Let's talk</h2>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <p>Always open to collaborating on research, hackathons, or weird IoT projects. If you're into physics or building things that shouldn't work but do, hit me up.</p>
+                <div class="contact-links">
+                    <a href="tel:+918807823244" class="contact-link">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        +91 8807823244
+                    </a>
+                    <a href="https://github.com/arvindhanscooby2-a11y" target="_blank" rel="noopener" class="contact-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                    <a href="https://www.instagram.com/arvindwasfoundhere/" target="_blank" rel="noopener" class="contact-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+            <div class="collab-list">
+                <p class="collab-label">People I work with</p>
+                {% for c in collaborators %}
+                <a href="{{ c.url }}" target="_blank" rel="noopener" class="collab-item">
+                    <span>{{ c.name }}</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="collab-arrow"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+
+<div class="theme-backdrop" id="theme-backdrop"></div>
+
+<footer class="foot">
+    <p>Arvindhan</p>
+    <p class="foot-sub">Physics. Code. Innovation.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

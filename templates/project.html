@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light');</script>
+    <title>{{ project.name }} &mdash; Arvindhan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">Arvindhan</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/#projects" class="nav-link active">Projects</a>
+            <a href="/#skills" class="nav-link">Skills</a>
+            <a href="/#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-controls">
+            <div class="theme-picker">
+                <button id="theme-btn" class="theme-btn" title="Change theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <div class="theme-dots">
+                    <button class="theme-opt" data-theme="light"><span class="theme-dot t-light"></span>Light</button>
+                    <button class="theme-opt" data-theme="jetblack"><span class="theme-dot t-jetblack"></span>Jet Black</button>
+                    <button class="theme-opt" data-theme="midnight"><span class="theme-dot t-midnight"></span>Midnight</button>
+                    <button class="theme-opt" data-theme="rose"><span class="theme-dot t-rose"></span>Rose</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="detail-page">
+    <a href="/#projects" class="back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All projects
+    </a>
+
+    <div class="project-hero">
+        <img src="{{ url_for('static', filename=project.image) }}" alt="{{ project.name }}" class="project-hero-img">
+        <span class="project-tag">{{ project.tag }}</span>
+        <h1>{{ project.name }}</h1>
+        <p class="project-desc-long">{{ project.desc }}</p>
+        <div class="project-meta-row">
+            <div class="project-meta-item">
+                <span class="meta-label">Role</span>
+                <span class="meta-value">{{ project.role }}</span>
+            </div>
+            <div class="project-meta-item">
+                <span class="meta-label">Status</span>
+                <span class="meta-value">{{ project.status }}</span>
+            </div>
+            {% if project.cofounder %}
+            <div class="project-meta-item">
+                <span class="meta-label">Co-founder</span>
+                <span class="meta-value">{{ project.cofounder }}</span>
+            </div>
+            {% endif %}
+        </div>
+        <div class="project-tech-row">
+            {% for t in project.tech %}
+            <span class="tech-pill">{{ t }}</span>
+            {% endfor %}
+        </div>
+        <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer" class="project-live-btn">
+            Visit {{ project.name }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+    </div>
+
+    <div class="project-detail-grid">
+        <div class="project-detail-main">
+            <!-- Overview -->
+            <div class="d-sec">
+                <div class="sec-label">Overview</div>
+                <p>{{ project.long_desc }}</p>
+            </div>
+
+            <!-- Features -->
+            {% if project.features %}
+            <div class="d-sec">
+                <div class="sec-label">Features</div>
+                <ul class="detail-list">
+                    {% for f in project.features %}
+                    <li>{{ f }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <!-- Hardware (Gaia Sentinel only) -->
+            {% if project.hardware %}
+            <div class="d-sec">
+                <div class="sec-label">Hardware</div>
+                <ul class="detail-list">
+                    {% for h in project.hardware %}
+                    <li>{{ h }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <!-- Pricing (Gaia Cloud only) -->
+            {% if project.pricing %}
+            <div class="d-sec">
+                <div class="sec-label">Pricing</div>
+                <ul class="detail-list">
+                    {% for p in project.pricing %}
+                    <li>{{ p }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+            <!-- Roadmap (Gaia Sentinel only) -->
+            {% if project.roadmap %}
+            <div class="d-sec">
+                <div class="sec-label">Roadmap</div>
+                <div class="roadmap-list">
+                    {% for r in project.roadmap %}
+                    <div class="roadmap-item">{{ r }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Sidebar: other projects -->
+        <aside class="project-sidebar">
+            <div class="sidebar-sticky">
+                <div class="toc-card">
+                    <div class="toc-label">Other projects</div>
+                    <nav class="toc-nav">
+                        {% for p in all_projects %}
+                        {% if p.slug != project.slug %}
+                        <a href="/project/{{ p.slug }}" class="toc-link {% if p.slug == project.slug %}active{% endif %}">{{ p.name }}</a>
+                        {% endif %}
+                        {% endfor %}
+                    </nav>
+                </div>
+                <div class="toc-card" style="margin-top:1rem;">
+                    <div class="toc-label">Links</div>
+                    <a href="{{ project.url }}" target="_blank" rel="noopener" class="sidebar-link">
+                        Live site
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                    <a href="/" class="sidebar-link">Back to portfolio</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<div class="theme-backdrop" id="theme-backdrop"></div>
+
+<footer class="foot">
+    <p>Arvindhan</p>
+    <p class="foot-sub">Physics. Code. Innovation.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

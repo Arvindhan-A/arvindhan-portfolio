@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light');</script>
+    <title>{{ skill.name }} &mdash; Arvindhan</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="nav-inner">
+        <a href="/" class="nav-logo">Arvindhan</a>
+        <div class="nav-links">
+            <a href="/" class="nav-link">Home</a>
+            <a href="/#projects" class="nav-link">Projects</a>
+            <a href="/#skills" class="nav-link active">Skills</a>
+            <a href="/#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-controls">
+            <div class="theme-picker">
+                <button id="theme-btn" class="theme-btn" title="Change theme">
+                    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
+                <div class="theme-dots">
+                    <button class="theme-opt" data-theme="light"><span class="theme-dot t-light"></span>Light</button>
+                    <button class="theme-opt" data-theme="jetblack"><span class="theme-dot t-jetblack"></span>Jet Black</button>
+                    <button class="theme-opt" data-theme="midnight"><span class="theme-dot t-midnight"></span>Midnight</button>
+                    <button class="theme-opt" data-theme="rose"><span class="theme-dot t-rose"></span>Rose</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="detail-page">
+    <a href="/#skills" class="back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        All skills
+    </a>
+
+    <div class="skill-hero">
+        <span class="skill-cat">{{ skill.cat }}</span>
+        <h1>{{ skill.name }}</h1>
+        <p class="skill-desc-long">{{ skill.long_desc }}</p>
+    </div>
+
+    <div class="project-detail-grid">
+        <div class="project-detail-main">
+            <!-- How I use it -->
+            <div class="d-sec">
+                <div class="sec-label">How I use it</div>
+                <ul class="detail-list">
+                    {% for d in skill.details %}
+                    <li>{{ d }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- Projects that use this skill -->
+            <div class="d-sec">
+                <div class="sec-label">Used in</div>
+                <div class="skill-used-grid">
+                    {% for p in used_projects %}
+                    <a href="/project/{{ p.slug }}" class="skill-used-card">
+                        <img src="{{ url_for('static', filename=p.image) }}" alt="{{ p.name }}">
+                        <span class="skill-used-name">{{ p.name }}</span>
+                    </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="project-sidebar">
+            <div class="sidebar-sticky">
+                <div class="toc-card">
+                    <div class="toc-label">All skills</div>
+                    <nav class="toc-nav">
+                        {% for s in all_skills %}
+                        <a href="/skill/{{ s.slug }}" class="toc-link {% if s.slug == skill.slug %}active{% endif %}">{{ s.name }}</a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<div class="theme-backdrop" id="theme-backdrop"></div>
+
+<footer class="foot">
+    <p>Arvindhan</p>
+    <p class="foot-sub">Physics. Code. Innovation.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
