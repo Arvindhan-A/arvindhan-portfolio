@@ -63,7 +63,7 @@ projects = [
         "name": "Gaia Transfer",
         "tag": "FILE TRANSFER",
         "image": "transfer.png",
-        "url": "https://transfer.gaiasentinel.online",
+        "url": "https://gaiatransfer.gaiasentinel.online",
         "desc": "Send files browser-to-browser. No server stores anything. AES-256 encrypted, peer-to-peer.",
         "long_desc": "Every file transfer service uploads your file to their server first. We don't. Your file is AES-256 encrypted in your browser before it even leaves your device. The connection between sender and receiver is peer-to-peer through WebRTC — direct browser to browser. We literally cannot see your files.\n\nNo account needed for quick transfers. You get a word-pair code (like 'blue-elephant'), share it with the person you're sending to, they enter it, and the file transfers directly. If you want an account, you get a custom @username, contact list, and transfer history.\n\nThree modes: Guest (instant, no sign-up), Login (permanent code, history), Sign Up (free account, custom username).",
         "features": [

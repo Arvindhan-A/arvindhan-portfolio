@@ -1,0 +1,111 @@
+:root {
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+  --r-pill: 100px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --pad: 3rem;
+  --w: 1100px;
+
+  --sh-card: 0 1px 3px rgba(0, 0, 0, 0.03);
+  --sh-card-hover: 0 8px 28px rgba(0, 0, 0, 0.06);
+  --sh-dropdown: 0 12px 40px rgba(0, 0, 0, 0.09);
+}
+
+[data-theme="light"] {
+  --bg: #f8f7f4;
+  --bg-warm: #f0eee9;
+  --surface: #fff;
+  --glass: rgba(248, 247, 244, 0.85);
+  --border: rgba(0, 0, 0, 0.06);
+  --border-accent: rgba(0, 0, 0, 0.11);
+  --text-1: #1a1916;
+  --text-2: #5c5a55;
+  --text-3: #908d86;
+  --text-4: #bab7b0;
+  --accent: #b8612a;
+  --accent-soft: rgba(184, 97, 42, 0.07);
+  --green: #4d8a5e;
+  --green-soft: rgba(77, 138, 94, 0.08);
+  --nav-bg: rgba(0, 0, 0, 0.04);
+  --hover-tint: rgba(0, 0, 0, 0.04);
+  --scroll-t: rgba(0, 0, 0, 0.15);
+  --scroll-h: rgba(0, 0, 0, 0.3);
+  --sh-card: 0 1px 3px rgba(0, 0, 0, 0.03);
+  --sh-card-hover: 0 8px 28px rgba(0, 0, 0, 0.06);
+  --sh-dropdown: 0 12px 40px rgba(0, 0, 0, 0.09);
+}
+
+[data-theme="jetblack"] {
+  --bg: #0b1919;
+  --bg-warm: #0f2020;
+  --surface: #0f2020;
+  --glass: rgba(11, 25, 25, 0.85);
+  --border: rgba(255, 255, 255, 0.07);
+  --border-accent: rgba(255, 255, 255, 0.14);
+  --text-1: #dcefef;
+  --text-2: #7fb3b3;
+  --text-3: #5a8a8a;
+  --text-4: #3d6666;
+  --accent: #4fb0b0;
+  --accent-soft: rgba(79, 176, 176, 0.1);
+  --green: #5cc494;
+  --green-soft: rgba(92, 196, 148, 0.1);
+  --nav-bg: rgba(255, 255, 255, 0.05);
+  --hover-tint: rgba(255, 255, 255, 0.04);
+  --scroll-t: rgba(79, 176, 176, 0.3);
+  --scroll-h: rgba(79, 176, 176, 0.5);
+  --sh-card: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --sh-card-hover: 0 8px 28px rgba(0, 0, 0, 0.35);
+  --sh-dropdown: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="midnight"] {
+  --bg: #0c0e1a;
+  --bg-warm: #12152a;
+  --surface: #12152a;
+  --glass: rgba(12, 14, 26, 0.85);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-accent: rgba(255, 255, 255, 0.12);
+  --text-1: #e0e2ff;
+  --text-2: #8b8fa8;
+  --text-3: #606478;
+  --text-4: #404456;
+  --accent: #7882ff;
+  --accent-soft: rgba(120, 130, 255, 0.1);
+  --green: #6ea8cc;
+  --green-soft: rgba(110, 168, 204, 0.1);
+  --nav-bg: rgba(255, 255, 255, 0.04);
+  --hover-tint: rgba(255, 255, 255, 0.03);
+  --scroll-t: rgba(120, 130, 255, 0.3);
+  --scroll-h: rgba(120, 130, 255, 0.5);
+  --sh-card: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --sh-card-hover: 0 8px 28px rgba(0, 0, 0, 0.4);
+  --sh-dropdown: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="rose"] {
+  --bg: #f9f3f0;
+  --bg-warm: #f2ebe6;
+  --surface: #fff;
+  --glass: rgba(249, 243, 240, 0.85);
+  --border: rgba(0, 0, 0, 0.06);
+  --border-accent: rgba(0, 0, 0, 0.12);
+  --text-1: #2e1a15;
+  --text-2: #6b4f44;
+  --text-3: #9a7d72;
+  --text-4: #c4b0a6;
+  --accent: #b85238;
+  --accent-soft: rgba(184, 82, 56, 0.07);
+  --green: #5a8a5e;
+  --green-soft: rgba(90, 138, 94, 0.08);
+  --nav-bg: rgba(0, 0, 0, 0.04);
+  --hover-tint: rgba(0, 0, 0, 0.03);
+  --scroll-t: rgba(184, 82, 56, 0.2);
+  --scroll-h: rgba(184, 82, 56, 0.4);
+  --sh-card: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --sh-card-hover: 0 8px 28px rgba(0, 0, 0, 0.08);
+  --sh-dropdown: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
