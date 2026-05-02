@@ -11,7 +11,7 @@ projects = [
         "url": "https://gaiasentinel.online",
         "cofounder": "Abinaav K (Founder & Head of Engineering)",
         "desc": "Environmental monitoring using IoT sensor networks. Custom hardware that reads air and water quality in real time and pushes alerts when things go bad.",
-        "long_desc": "Environmental intelligence platform started as a school project. Built sensor nodes that detect unsafe conditions in air and water, then alert you instantly. Monitors PM2.5, PM10, NO2, CO, TDS, pH, and temperature. Data flows through Python/Flask backend to a real-time WebGL dashboard. Won 1st place at Robo Genesis December 2025. Currently working on a HEPA Purification Node that actively cleans air when thresholds are crossed.",
+        "long_desc": "Gaia Sentinel is an environmental intelligence platform we started as a school project. The idea was simple: traditional environmental monitoring is too slow. Lab tests take 48-72 hours. By the time you know there's contamination, the damage is done. We built sensor nodes that detect unsafe conditions in sub-second latency and alert you instantly.\n\nThe platform monitors PM2.5, PM10, NO2, carbon monoxide, TDS, pH, and water temperature. Data flows from hardware nodes through our Python/Flask backend into a real-time WebGL dashboard. We won first place at Robo Genesis in December 2025 for this.\n\nRight now we're working on a HEPA Purification Node — it doesn't just measure pollution, it actively cleans the air when thresholds are crossed. 100 cubic meters per hour, industrial-grade HEPA-13 filter with activated carbon.",
         "features": [
             "Air quality monitoring — PM2.5, PM10, NO2, CO via laser-scattering sensors",
             "Water quality monitoring — TDS, pH, turbidity analysis",
@@ -46,7 +46,7 @@ projects = [
         "image": "studytracker.png",
         "url": "https://c12tracker.gaiasentinel.online",
         "desc": "Study tracker for CBSE Class 9-12. Track what you've studied, what needs revision, and exam readiness.",
-        "long_desc": "Study tracker for CBSE Class 9-12 built for myself. Tracks which chapters are done, what needs revision, and calculates exam readiness as a percentage by subject. Sign in with Google or email, mark chapters complete, and get nudges before you forget. Built with Flask and PostgreSQL. First month free for new users.",
+        "long_desc": "Built this for myself first. I'm in Class 12 and keeping track of the syllabus across all subjects is a nightmare. Which chapters are done? What needs revision? How ready am I actually for the board exams?\n\nC12 Tracker answers all of that. Sign in with Google or email. Mark chapters as complete by subject. The app tracks revision cycles — it knows when you last reviewed something and nudges you before you forget. Your exam readiness shows up as a percentage broken down by subject, so you know exactly where you're weak.\n\nSimple dashboard, no bloat. Built with Flask and PostgreSQL. First month free for new users.",
         "features": [
             "Google and email sign-in",
             "Chapter completion tracking by subject",
@@ -65,7 +65,7 @@ projects = [
         "image": "transfer.png",
         "url": "https://transfer.gaiasentinel.online",
         "desc": "Send files browser-to-browser. No server stores anything. AES-256 encrypted, peer-to-peer.",
-        "long_desc": "Browser-to-browser file transfer with AES-256 encryption and WebRTC peer-to-peer. No server stores anything — files go directly from sender to receiver. Guest mode uses word-pair codes (like 'blue-elephant'), account mode gives custom @username, contacts, and transfer history. No file size limit, constrained only by browser memory.",
+        "long_desc": "Every file transfer service uploads your file to their server first. We don't. Your file is AES-256 encrypted in your browser before it even leaves your device. The connection between sender and receiver is peer-to-peer through WebRTC — direct browser to browser. We literally cannot see your files.\n\nNo account needed for quick transfers. You get a word-pair code (like 'blue-elephant'), share it with the person you're sending to, they enter it, and the file transfers directly. If you want an account, you get a custom @username, contact list, and transfer history.\n\nThree modes: Guest (instant, no sign-up), Login (permanent code, history), Sign Up (free account, custom username).",
         "features": [
             "AES-256 encryption — encrypted in-browser before leaving your device",
             "Peer-to-peer via WebRTC — no upload/download delay, no server storage",
@@ -84,7 +84,7 @@ projects = [
         "image": "sandipani.png",
         "url": "https://sandipani2.gaiasentinel.online",
         "desc": "Official website for my school. CBSE affiliated, Nursery to Grade XII.",
-        "long_desc": "Official website for Sandipani Vidyalaya, a CBSE affiliated school in Chennai run by SASTRA Trust. Built with Abinaav: admissions page with 2026-27 registration, curriculum breakdown from PreKG to Grade XII, fee structure, faculty directory, events calendar, and campus gallery. The school actually uses it for admissions and communications.",
+        "long_desc": "My school needed a proper website and didn't have one. Sandipani Vidyalaya is a CBSE affiliated school (No. 1931521) in Chennai, run by SASTRA Trust. Nursery to Grade XII, with Science, Commerce, and Humanities streams at the senior secondary level.\n\nI built the full site with Abinaav: admissions page with 2026-27 registration, curriculum breakdown from PreKG to Senior Secondary, fee structure, faculty directory, events calendar, and the CBSE mandate documentation. The campus is 3220 m2 with dedicated science labs, computer labs, sports facilities, and performing arts studios.\n\nThe school motto is 'Gnanam Param Balam' — Knowledge is the Supreme Power. The site is live and the school actually uses it for admissions and communications.",
         "features": [
             "Full admissions system for 2026-27 academic year",
             "Curriculum breakdown: PreKG, Primary (I-V), Middle (VI-VIII), Secondary (IX-X), Senior Sec (XI-XII)",
@@ -104,7 +104,7 @@ projects = [
         "image": "srikrishnarnterprises.png",
         "url": "https://srikrishnas.store",
         "desc": "Website for a silk and traditional fabrics showroom in Vadapalani, Chennai.",
-        "long_desc": "Website for Sri Krishna Enterprises, a silk and traditional fabrics showroom in Vadapalani, Chennai since 1995. Family-run business with 2000+ blouse varieties. Built a clean site showcasing silk sarees, blouse materials, with WhatsApp integration, Google Maps directions, and Instagram link for latest arrivals.",
+        "long_desc": "Sri Krishna Enterprises has been selling premium silks and traditional fabrics in Vadapalani since 1995. Family-run business, pure silk specialists. They had 2000+ blouse varieties and no online presence.\n\nI built them a site that actually shows what they have. The collection page showcases matching blouse materials, traditional silk sarees, and premium fabrics with real photos from the showroom. Located near Murugan Temple in Vadapalani, Chennai 600026. Contact info with WhatsApp integration, phone number, and Instagram link.\n\nThe design is clean — big hero image, collection categories (Tangilble Heritage with Touch, Craft, Space philosophy), and a full showroom address with Google Maps directions. Since 1995.",
         "features": [
             "Full collection showcase with 2000+ varieties",
             "Traditional silk sarees and blouse materials",
@@ -123,7 +123,7 @@ projects = [
         "image": "deploy.png",
         "url": "https://deploy.gaiasentinel.online",
         "desc": "The original deployment platform. Auto-detects your framework and gets you live.",
-        "long_desc": "First version of our hosting platform, before Gaia Cloud. Push your repo, auto-detect framework (Flask, Django, FastAPI, Express, Next.js, static HTML), deploy in under 60 seconds. Free PostgreSQL provisioning and subdomains. No cold starts on free tier, real-time deploy logs.",
+        "long_desc": "This was the first version of our hosting platform, before Gaia Cloud. Same core idea: push your repo, auto-detect the framework, deploy in under 60 seconds. Six frameworks supported (Flask, Django, FastAPI, Express, Next.js, static HTML). Free PostgreSQL provisioning. Free subdomains.\n\nStill running. Some users prefer the simpler interface over Gaia Cloud. The comparison table still holds — faster deploy times than Render, no cold starts on free tier, resource isolation with cgroups, real-time deploy logs.",
         "features": [
             "Auto framework detection — 6 frameworks",
             "PostgreSQL provisioning in seconds",
@@ -243,45 +243,6 @@ def index():
     )
 
 
-@app.route('/about')
-def about():
-    certs = [
-        "IITM Electronic Systems (6-week intensive)",
-        "IITM Data Science (6-week intensive)",
-        "Hindi Proficiency Certification",
-        "Computer Science Basics",
-        "Tech Team Member — Sandipani Vidyalaya",
-        "Global Art Certification (5+ years)",
-    ]
-    return render_template('about.html', projects=projects, skills=skills, certs=certs)
-
-
-@app.route('/journey')
-def journey():
-    timeline = [
-        {"year": "2025-26", "title": "Class 12", "desc": "Physics and math heavy. Building advanced prototypes, prepping for Olympiads.", "highlight": "Current Year"},
-        {"year": "2026", "title": "IITM Electronic Systems", "desc": "6-week course on circuit design, op-amps, and embedded logic."},
-        {"year": "2025", "title": "IITM Data Science", "desc": "6-week course on statistics, ML basics, and Python analytics."},
-        {"year": "2025", "title": "GAIA Sentinel — 1st Place", "desc": "Won the school project competition. The IoT drone project that started everything.", "highlight": "Winner"},
-        {"year": "2023", "title": "Class 10 — 476/500", "desc": "Finished at Jawahar Vidyalaya with 95.2%. Strong base in physics and math."},
-    ]
-    return render_template('journey.html', timeline=timeline, projects=projects)
-
-
-@app.route('/projects')
-def projects_page():
-    return render_template('projects.html', projects=projects, skills=skills)
-
-
-@app.route('/contact')
-def contact():
-    collaborators = [
-        {"name": "Abinaav K", "url": "https://abinaavk.com"},
-        {"name": "Gokul", "url": "https://gokul.gaiasentinel.online"},
-    ]
-    return render_template('contact.html', collaborators=collaborators)
-
-
 @app.route('/project/<slug>')
 def project_detail(slug):
     project = next((p for p in projects if p['slug'] == slug), None)
@@ -295,11 +256,12 @@ def skill_detail(slug):
     skill = next((s for s in skills if s['slug'] == slug), None)
     if not skill:
         abort(404)
+    # Find projects that use this skill
     used_projects = [p for p in projects if p['slug'] in skill['used_in']]
     return render_template('skill.html', skill=skill, used_projects=used_projects, all_skills=skills)
 
 
 if __name__ == '__main__':
     import os
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port, debug=True)
+    port = int(os.environ.get('PORT', 8082))
+    app.run(host='0.0.0.0', port=port, debug=False)
