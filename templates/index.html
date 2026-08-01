@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||'light');</script>
-    <title>Arvindhan</title>
+    <title>Arvindhan &mdash; Physics. Code. Hardware.</title>
+    <meta name="description" content="Class 12 student in Chennai building IoT systems and full-stack apps. Secretary of Bridge The Gap Robotics, Chennai Chapter. Co-founder of Gaia Sentinel.">
+    <meta name="theme-color" content="#f8f7f4">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -13,6 +15,7 @@
         <a href="/" class="nav-logo">Arvindhan</a>
         <div class="nav-links">
             <a href="#about" class="nav-link">About</a>
+            <a href="#roles" class="nav-link">Leadership</a>
             <a href="#projects" class="nav-link">Projects</a>
             <a href="#skills" class="nav-link">Skills</a>
             <a href="#contact" class="nav-link">Contact</a>
@@ -51,11 +54,13 @@
             <div class="shape shape-cross s11"></div>
             <div class="shape shape-cross s12"></div>
         </div>
+        <span class="hero-eyebrow">Chennai &middot; Secretary, Bridge The Gap Robotics</span>
         <h1>Arvindhan</h1>
         <p class="hero-sub">Physics. Code. Hardware.<br>Class 12 student building things that shouldn't work but do.</p>
         <div class="hero-links">
             <a href="#projects">Projects</a>
             <a href="#about">About</a>
+            <a href="#roles">Leadership</a>
             <a href="#contact">Contact</a>
         </div>
     </section>
@@ -70,6 +75,7 @@
             <div class="about-text">
                 <p>I'm a Class 12 student at Sandipani Vidyalaya in Chennai. I spend most of my time between condensed matter physics and writing Python scripts that talk to sensors.</p>
                 <p>I don't just read about how things work — I build them. That's how Gaia Sentinel started: a school project that turned into a real environmental monitoring platform with custom hardware. Now it's deployed and running.</p>
+                <p>Outside of school, I'm the Secretary of the Chennai chapter of Bridge The Gap Robotics — an organization working to make robotics education accessible. I handle chapter operations, workshops, and outreach.</p>
                 <p>I've also done 5+ years of art training at Global Art, which sounds unrelated but helps a lot with UI design. If something looks good and works well, that's not a coincidence.</p>
             </div>
             <div class="about-highlights">
@@ -100,6 +106,26 @@
                 <h3>Full-Stack</h3>
                 <p>Flask, PostgreSQL, HTML/CSS/JS. End to end, backend to frontend.</p>
             </div>
+        </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="section" id="roles">
+        <div class="sec-header">
+            <span class="sec-label">Leadership</span>
+            <h2 class="sec-title">Roles I hold</h2>
+        </div>
+        <div class="role-grid">
+            {% for r in roles %}
+            <div class="role-card">
+                <div class="role-top">
+                    <span class="role-org">{{ r.org }}</span>
+                    <span class="role-badge">{{ r.badge }}</span>
+                </div>
+                <h3 class="role-title">{{ r.title }}</h3>
+                <p class="role-desc">{{ r.desc }}</p>
+            </div>
+            {% endfor %}
         </div>
     </section>
 

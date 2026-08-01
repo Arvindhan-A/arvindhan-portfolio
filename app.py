@@ -226,7 +226,22 @@ def index():
         {"title": "Project Hail Mary", "author": "Andy Weir", "quote": "Science problem-solving at its best. Made me want to build more things."},
         {"title": "The Alchemist", "author": "Paulo Coelho", "quote": "The journey matters more than the destination. Cliche but true."},
     ]
+    roles = [
+        {
+            "org": "Bridge The Gap Robotics",
+            "title": "Secretary — Chennai Chapter",
+            "badge": "Leadership",
+            "desc": "I run operations for the Chennai chapter — coordinating workshops, managing outreach, and getting more students hands-on with robotics. Bridge The Gap works to make robotics education accessible to students who wouldn't otherwise get the chance.",
+        },
+        {
+            "org": "Sandipani Vidyalaya",
+            "title": "Tech Team Member",
+            "badge": "School",
+            "desc": "Official member of the school tech committee. I manage digital systems, handle technical logistics for events, and built the school's official website.",
+        },
+    ]
     timeline = [
+        {"year": "2025-26", "title": "Bridge The Gap Robotics — Chennai Chapter Secretary", "desc": "Running chapter operations, coordinating robotics workshops and outreach events across Chennai."},
         {"year": "2025-26", "title": "Class 12", "desc": "Physics and math heavy. Building advanced prototypes, prepping for Olympiads."},
         {"year": "2026", "title": "IITM Electronic Systems", "desc": "6-week course on circuit design, op-amps, and embedded logic."},
         {"year": "2025", "title": "IITM Data Science", "desc": "6-week course on statistics, ML basics, and Python analytics."},
@@ -239,7 +254,8 @@ def index():
     ]
     return render_template('index.html',
         projects=projects, skills=skills, certs=certs,
-        books=books, timeline=timeline, collaborators=collaborators
+        books=books, timeline=timeline, collaborators=collaborators,
+        roles=roles
     )
 
 

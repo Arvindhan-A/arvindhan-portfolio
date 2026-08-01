@@ -1,10 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Theme
+    const themeColors = { light: '#f8f7f4', jetblack: '#0b1919', midnight: '#0c0e1a', rose: '#f9f3f0' };
     function getTheme() { return localStorage.getItem('theme') || 'light'; }
     function setTheme(t) {
         document.documentElement.setAttribute('data-theme', t);
         localStorage.setItem('theme', t);
         document.querySelectorAll('.theme-opt').forEach(o => o.classList.toggle('active', o.dataset.theme === t));
+        let meta = document.querySelector('meta[name="theme-color"]');
+        if (!meta) {
+            meta = document.createElement('meta');
+            meta.name = 'theme-color';
+            document.head.appendChild(meta);
+        }
+        meta.content = themeColors[t] || themeColors.light;
     }
     setTheme(getTheme());
 
