@@ -1,0 +1,96 @@
+{%- set nav_items = [('about', 'About'), ('projects', 'Projects'), ('roles', 'Leadership'), ('skills', 'Skills'), ('contact', 'Contact')] -%}
+{%- set description = self.description() | trim -%}
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            root.setAttribute('data-theme', localStorage.getItem('theme') || (dark ? 'midnight' : 'light'));
+            root.classList.add('js');
+        })();
+    </script>
+    <title>{% block title %}Arvindhan &mdash; Physics. Code. Hardware.{% endblock %}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="theme-color" content="#f8f7f4">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ self.title() | trim }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:image" content="{{ url_for('static', filename='img/og.png', _external=True) }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.svg') }}" type="image/svg+xml">
+    <script src="{{ url_for('static', filename='js/transitions.js') }}"></script>
+    <script type="speculationrules">
+        {"prefetch": [{"where": {"href_matches": "/project/*"}, "eagerness": "moderate"}]}
+    </script>
+    {% block head %}{% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body{% block body_attrs %}{% endblock %}>
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="site-header">
+    <a href="/" class="nav-logo">Arvindhan</a>
+    <nav class="nav-links" aria-label="Main">
+        <span class="nav-indicator" aria-hidden="true"></span>
+        {% for id, label in nav_items %}
+        <a href="/#{{ id }}" class="nav-link{% if active_nav == id %} is-active{% endif %}" data-section="{{ id }}">{{ label }}</a>
+        {% endfor %}
+    </nav>
+    <div class="nav-controls">
+        <button id="theme-btn" class="icon-btn" popovertarget="theme-menu" aria-label="Change theme">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.220 4.220l1.420 1.420M18.360 18.360l1.420 1.420M1 12h2M21 12h2M4.220 19.780l1.420-1.420M18.360 5.640l1.420-1.420"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.790A9 9 0 1111.210 3 7 7 0 0021 12.790z"/></svg>
+        </button>
+        <button class="icon-btn menu-btn" popovertarget="mobile-menu" aria-label="Open menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+        </button>
+    </div>
+</header>
+
+<div id="theme-menu" class="theme-menu" popover>
+    <button class="theme-opt" data-theme-option="light"><span class="theme-dot t-light"></span>Light</button>
+    <button class="theme-opt" data-theme-option="jetblack"><span class="theme-dot t-jetblack"></span>Jet Black</button>
+    <button class="theme-opt" data-theme-option="midnight"><span class="theme-dot t-midnight"></span>Midnight</button>
+    <button class="theme-opt" data-theme-option="rose"><span class="theme-dot t-rose"></span>Rose</button>
+</div>
+
+<div id="mobile-menu" class="mobile-menu" popover>
+    <button class="icon-btn mobile-close" popovertarget="mobile-menu" popovertargetaction="hide" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav aria-label="Mobile">
+        {% for id, label in nav_items %}
+        <a href="/#{{ id }}" style="--i:{{ loop.index0 }}">{{ label }}</a>
+        {% endfor %}
+    </nav>
+</div>
+
+<main id="content">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="foot">
+    <div class="wrap foot-inner">
+        <div>
+            <p class="foot-name">Arvindhan</p>
+            <p class="foot-sub">Physics. Code. Innovation.</p>
+        </div>
+        <a href="#content" class="foot-top">Back to top
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </a>
+    </div>
+</footer>
+
+{% block scripts %}{% endblock %}
+<script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+</body>
+</html>

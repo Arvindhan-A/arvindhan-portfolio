@@ -7,7 +7,9 @@ projects = [
         "slug": "gaia-sentinel",
         "name": "Gaia Sentinel",
         "tag": "FLAGSHIP",
-        "image": "gaiasentinel.png",
+        "image": "img/gaiasentinel.webp",
+        "color": "#067a4a", "ink": "#f3ffe9", "highlight": "#d2ff4d",
+        "accent_light": "#03733f", "accent_dark": "#4dffa0",
         "url": "https://gaiasentinel.online",
         "cofounder": "Abinaav K (Founder & Head of Engineering)",
         "desc": "Environmental monitoring using IoT sensor networks. Custom hardware that reads air and water quality in real time and pushes alerts when things go bad.",
@@ -43,7 +45,9 @@ projects = [
         "slug": "c12-tracker",
         "name": "C12 Tracker",
         "tag": "EDTECH",
-        "image": "studytracker.png",
+        "image": "img/studytracker.webp",
+        "color": "#ffb81c", "ink": "#1d1405", "highlight": "#8f1d00",
+        "accent_light": "#a84f00", "accent_dark": "#ffc53d",
         "url": "https://c12tracker.gaiasentinel.online",
         "desc": "Study tracker for CBSE Class 9-12. Track what you've studied, what needs revision, and exam readiness.",
         "long_desc": "Built this for myself first. I'm in Class 12 and keeping track of the syllabus across all subjects is a nightmare. Which chapters are done? What needs revision? How ready am I actually for the board exams?\n\nC12 Tracker answers all of that. Sign in with Google or email. Mark chapters as complete by subject. The app tracks revision cycles — it knows when you last reviewed something and nudges you before you forget. Your exam readiness shows up as a percentage broken down by subject, so you know exactly where you're weak.\n\nSimple dashboard, no bloat. Built with Flask and PostgreSQL. First month free for new users.",
@@ -62,7 +66,9 @@ projects = [
         "slug": "gaia-transfer",
         "name": "Gaia Transfer",
         "tag": "FILE TRANSFER",
-        "image": "transfer.png",
+        "image": "img/transfer.webp",
+        "color": "#5a24e6", "ink": "#ffffff", "highlight": "#ffb3ec",
+        "accent_light": "#5a24e6", "accent_dark": "#b89cff",
         "url": "https://transfer.gaiasentinel.online",
         "desc": "Send files browser-to-browser. No server stores anything. AES-256 encrypted, peer-to-peer.",
         "long_desc": "Every file transfer service uploads your file to their server first. We don't. Your file is AES-256 encrypted in your browser before it even leaves your device. The connection between sender and receiver is peer-to-peer through WebRTC — direct browser to browser. We literally cannot see your files.\n\nNo account needed for quick transfers. You get a word-pair code (like 'blue-elephant'), share it with the person you're sending to, they enter it, and the file transfers directly. If you want an account, you get a custom @username, contact list, and transfer history.\n\nThree modes: Guest (instant, no sign-up), Login (permanent code, history), Sign Up (free account, custom username).",
@@ -81,7 +87,9 @@ projects = [
         "slug": "sandipani",
         "name": "Sandipani Vidyalaya",
         "tag": "SCHOOL",
-        "image": "sandipani.png",
+        "image": "img/sandipani.webp",
+        "color": "#0a3dd6", "ink": "#ffffff", "highlight": "#ffdc4d",
+        "accent_light": "#0a3dd6", "accent_dark": "#7ba4ff",
         "url": "https://sandipani2.gaiasentinel.online",
         "desc": "Official website for my school. CBSE affiliated, Nursery to Grade XII.",
         "long_desc": "My school needed a proper website and didn't have one. Sandipani Vidyalaya is a CBSE affiliated school (No. 1931521) in Chennai, run by SASTRA Trust. Nursery to Grade XII, with Science, Commerce, and Humanities streams at the senior secondary level.\n\nI built the full site with Abinaav: admissions page with 2026-27 registration, curriculum breakdown from PreKG to Senior Secondary, fee structure, faculty directory, events calendar, and the CBSE mandate documentation. The campus is 3220 m2 with dedicated science labs, computer labs, sports facilities, and performing arts studios.\n\nThe school motto is 'Gnanam Param Balam' — Knowledge is the Supreme Power. The site is live and the school actually uses it for admissions and communications.",
@@ -101,7 +109,9 @@ projects = [
         "slug": "sri-krishna",
         "name": "Sri Krishna Enterprises",
         "tag": "BUSINESS",
-        "image": "srikrishnarnterprises.png",
+        "image": "img/srikrishnarnterprises.webp",
+        "color": "#d10f2b", "ink": "#fff8ec", "highlight": "#ffec8a",
+        "accent_light": "#c80d28", "accent_dark": "#ff6478",
         "url": "https://srikrishnas.store",
         "desc": "Website for a silk and traditional fabrics showroom in Vadapalani, Chennai.",
         "long_desc": "Sri Krishna Enterprises has been selling premium silks and traditional fabrics in Vadapalani since 1995. Family-run business, pure silk specialists. They had 2000+ blouse varieties and no online presence.\n\nI built them a site that actually shows what they have. The collection page showcases matching blouse materials, traditional silk sarees, and premium fabrics with real photos from the showroom. Located near Murugan Temple in Vadapalani, Chennai 600026. Contact info with WhatsApp integration, phone number, and Instagram link.\n\nThe design is clean — big hero image, collection categories (Tangilble Heritage with Touch, Craft, Space philosophy), and a full showroom address with Google Maps directions. Since 1995.",
@@ -120,7 +130,9 @@ projects = [
         "slug": "deploy",
         "name": "Deploy (ATS)",
         "tag": "PLATFORM",
-        "image": "deploy.png",
+        "image": "img/deploy.webp",
+        "color": "#00c9a0", "ink": "#04201a", "highlight": "#07463a",
+        "accent_light": "#00705f", "accent_dark": "#2df2c4",
         "url": "https://deploy.gaiasentinel.online",
         "desc": "The original deployment platform. Auto-detects your framework and gets you live.",
         "long_desc": "This was the first version of our hosting platform, before Gaia Cloud. Same core idea: push your repo, auto-detect the framework, deploy in under 60 seconds. Six frameworks supported (Flask, Django, FastAPI, Express, Next.js, static HTML). Free PostgreSQL provisioning. Free subdomains.\n\nStill running. Some users prefer the simpler interface over Gaia Cloud. The comparison table still holds — faster deploy times than Render, no cold starts on free tier, resource isolation with cgroups, real-time deploy logs.",
@@ -137,6 +149,29 @@ projects = [
         "status": "Live — Legacy platform",
     },
 ]
+
+
+def title_lines(name, max_single_line=14):
+    """Split long names at the most balanced space, so a title wraps the same everywhere."""
+    words = name.split()
+    if len(name) <= max_single_line or len(words) < 2:
+        return [name]
+    splits = [(' '.join(words[:i]), ' '.join(words[i:])) for i in range(1, len(words))]
+    return list(min(splits, key=lambda pair: max(len(pair[0]), len(pair[1]))))
+
+
+def readable_on(hex_color):
+    """Black or white text, whichever is easier to read on this colour."""
+    channels = [int(hex_color[i:i + 2], 16) / 255 for i in (1, 3, 5)]
+    r, g, b = [c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4 for c in channels]
+    luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+    return "#ffffff" if 1.05 / (luminance + 0.05) >= (luminance + 0.05) / 0.05 else "#0c0c0c"
+
+
+for project in projects:
+    project["title_lines"] = title_lines(project["name"])
+    project["accent_light_ink"] = readable_on(project["accent_light"])
+    project["accent_dark_ink"] = readable_on(project["accent_dark"])
 
 
 skills = [
@@ -264,7 +299,8 @@ def project_detail(slug):
     project = next((p for p in projects if p['slug'] == slug), None)
     if not project:
         abort(404)
-    return render_template('project.html', project=project, all_projects=projects)
+    next_project = projects[(projects.index(project) + 1) % len(projects)]
+    return render_template('project.html', project=project, all_projects=projects, next_project=next_project)
 
 
 @app.route('/skill/<slug>')
